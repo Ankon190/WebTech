@@ -4,3 +4,56 @@
     box-sizing: border-box;
     font-family: poppins, sans-serif;
 }
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #f2f2f2;
+    background-size: cover;
+}
+
+.mainSection{
+    height: 320px;
+    width: 400px;
+    background: #466A9F;
+    color: white;
+    border-style: none;
+    border-radius: 10px;
+    padding: 25px 30px;
+}
+.mainSection h1{
+    font-size: 30px;
+    text-align: center;
+    margin: 20px 0px;
+}
+.patient {
+    width: 150px;
+    height: 50px;
+    margin: 20px 100px;
+    border-radius: 20px;
+    align-items: center;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    color: black;
+}
+.doctor {
+    width: 150px;
+    height: 50px;
+    margin: 20px 100px;
+    border-radius: 20px;
+    align-items: center;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    color: black;
+}
+
+.patient:hover, .doctor:hover {
+    background: #12191f;
+    color: white;
+    transition: 0.5s;
+}

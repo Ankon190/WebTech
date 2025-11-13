@@ -4,13 +4,13 @@
         <title>
             Login Type Select
         </title>
-        <style href="SelectLoginTypeStyle: .css"></style>
+        <link rel="stylesheet" href="SelectLoginTypeStyle.css">
     </head>
     <body>
        <div class="mainSection">
-        <h1 class="heading">Select for login as: </h1>
-            <button class="patient">Patient</button>
-            <button class="doctor">Doctor</button>
+        <h1 class="heading">Login as: </h1>
+            <button class="patient" onclick="window.location.href='Login.php'">Patient</button>
+            <button class="doctor" onclick="window.location.href='Login.php'">Doctor <a href="Login.php"></a></button>
        </div> 
 
 
