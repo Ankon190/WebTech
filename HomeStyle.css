@@ -28,11 +28,12 @@ body{
     color: white;
     font-size: 16px;
     font-weight: 500;
+    
 }
 #navbar ul li a:hover{
     color: #000000;
 }
 
-#navbar ul li.active a{
+#navbar ul li a.active{
     color: #000000;
 }
