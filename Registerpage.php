@@ -30,6 +30,11 @@
             <div class="input-box">
                 <input type="password" placeholder="Password" required>
             </div>
+            <div class="gender">
+                <p style="font-size: 18px;margin: -10px 0 10px 0;"> Select Gender: </p>
+                <label style="cursor: pointer; margin-right: 40px;"> <input type="radio" name="gender1" required>Male</label>
+                <label style="cursor: pointer;"> <input type="radio" name="gender1" required>Female</label>
+            </div><br>
             <div class="terms-conditions">
                 <label><input type="checkbox">I accept the terms and conditions</label>
             </div>
