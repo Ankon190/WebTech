@@ -7,6 +7,7 @@
         .wrapper .btn:hover{
             background: #12191f;
             color: white;
+            transition: 0.5s;
         }
     </style>
 </head>
@@ -22,6 +23,9 @@
             </div>
             <div class="input-box">
                 <input type="email" placeholder="Email" required>
+            </div>
+             <div class="input-box">
+                <input type="date" required>
             </div>
             <div class="input-box">
                 <input type="password" placeholder="Password" required>
