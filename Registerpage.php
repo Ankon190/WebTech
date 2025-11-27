@@ -9,7 +9,7 @@
 </head>
 <body>
     <div class="wrapper">
-        <form action="">
+        <form action="" method="post">
             <h1>Register</h1>
             <div class="input-box">
                 <input type="text" placeholder="First Name" required>
