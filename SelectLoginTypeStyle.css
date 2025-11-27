@@ -14,7 +14,7 @@ body {
 }
 
 .mainSection{
-    height: 320px;
+    
     width: 400px;
     background: #466A9F;
     color: white;
@@ -25,7 +25,7 @@ body {
 .mainSection h1{
     font-size: 30px;
     text-align: center;
-    margin: 20px 0px;
+    margin: 15px 0px;
 }
 .patient {
     width: 150px;

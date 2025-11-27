@@ -4,11 +4,7 @@
     <title>Register</title>
     <link rel="stylesheet" href="RegisterPageStyle.css">
     <style>
-        .wrapper .btn:hover{
-            background: #12191f;
-            color: white;
-            transition: 0.5s;
-        }
+        
     </style>
 </head>
 <body>
