@@ -9,7 +9,7 @@
 </head>
 <body>
     <div class="wrapper">
-        <form action="" method="post" onsubmit="validation()"> 
+        <form action="" method="post" onsubmit="validation(event)"> 
             <h1>Register</h1>
             <div class="input-box">
                 <input type="text" placeholder="First Name" id="fname">
@@ -39,7 +39,8 @@
     </div>
 
     <script>
-        function validation() {
+        function validation(event) {
+            event.preventDefault();
             const fname = document.getElementById('fname').value;
             const lname = document.getElementById('lname').value;
             const email = document.getElementById('email').value;
