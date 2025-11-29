@@ -18,7 +18,7 @@
                 <input type="text" placeholder="Last Name" id="lname" >
             </div>
             <div class="input-box">
-                <input type="email" placeholder="Email" id="email" >
+                <input type="text" placeholder="Email" id="email" >
             </div>
              <div class="input-box">
                 <input type="date" id="dob" >
@@ -50,13 +50,20 @@
             const female = document.getElementById('female').checked;
             const terms = document.getElementById('terms').checked;
 
-            console.log(fname, lname, email, dob, password, terms);
-
             if(fname=="" || lname=="" || email=="" || dob=="" || password=="" || (!male && !female) || !terms) {
                 alert("Please fill all the fields and accept the terms.");
                 return false;
             }
+            if(password.length < 6) {
+                alert("Password must be at least 6 characters long.");
+                return false;
+            }
+            if(email.includes("@")|| email.includes(".")) {
+                alert("Please enter a valid email address.");
+                return false;
         }
+
+    }
     </script>
 </body>
 </html>
