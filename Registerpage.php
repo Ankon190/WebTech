@@ -58,7 +58,7 @@
                 alert("Password must be at least 6 characters long.");
                 return false;
             }
-            if(email.includes("@")|| email.includes(".")) {
+            if(!email.includes("@")|| !email.includes(".")) {
                 alert("Please enter a valid email address.");
                 return false;
         }
