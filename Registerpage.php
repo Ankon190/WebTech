@@ -62,7 +62,7 @@
                 alert("Please enter a valid email address.");
                 return false;
         }
-
+        alert("Registration successful!");
     }
     </script>
 </body>
