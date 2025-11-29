@@ -15,7 +15,7 @@
         <li><a href="#">Profile</a></li>
         <li><a href="#">Reports</a></li>
         <li><a href="#">About Us</a></li>
-        <li><a href="Login.php">Login</a></li>
+        <li><a href="SelectLoginType.php">Login</a></li>
     </ul>
 
     <div class="hamburger-menu" onclick="toggleDropdown()">
@@ -24,7 +24,7 @@
 
     <div class="dropdown-Content"  id="dropdownMenu">
         
-            <a class="active" href="Home.php">Home</a>
+            <a class="active" href="House.php">Home</a>
             <a href="#">Profile</a>
             <a href="#">Reports</a>
             <a href="#">About Us</a>

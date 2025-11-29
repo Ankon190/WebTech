@@ -55,11 +55,16 @@ body {
     
 
 }
-.gender label{
+
+.wrapper .gender label{
+    color:white;
     cursor: pointer;
-    margin-bottom: 20px;
 }
 
+.wrapper .gender input{
+    color:black;
+    cursor: pointer;
+}
 .wrapper .terms-conditions{
     display: flex;
     justify-content: space-between;
@@ -69,8 +74,12 @@ body {
 .terms-conditions label input{
     accent-color: white;
     margin: 5px;
+    
 }
 
+.terms-conditions label{
+    cursor: pointer;
+}
 .wrapper .btn{
     width: 100%;
     height: 40px;
