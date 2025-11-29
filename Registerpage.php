@@ -47,6 +47,8 @@
             const password = document.getElementById('password').value;
             const terms = document.getElementById('terms').checked;
 
+            console.log(fname, lname, email, dob, password, terms);
+
             if(fname=="" || lname=="" || email=="" || dob=="" || password=="" || !terms) {
                 alert("Please fill all the fields and accept the terms.");
                 return false;
