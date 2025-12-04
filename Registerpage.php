@@ -7,6 +7,7 @@
         
     </style>
 </head>
+
 <body>
     <div class="wrapper">
         <form action="" method="post" onsubmit="validation(event)"> 
@@ -62,7 +63,7 @@
                 alert("Please enter a valid email address.");
                 return false;
         }
-        alert("Registration successful!");
+        alert("Registration successful!"); 
     }
     </script>
 </body>
