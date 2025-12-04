@@ -46,6 +46,9 @@ body{
     font-size:22px;
     color:white;
     z-index:100;
+    padding: 8px;
+    transition: all 0.3s ease;
+    display: none;
 
 }
 

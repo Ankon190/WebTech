@@ -11,14 +11,14 @@
 <body>
     <nav id="navbar">
         <ul>
-        <li><a class="active" href="Home.php">Home</a></li>
+        <li><a class="active" href="House.php">Home</a></li>
         <li><a href="#">Profile</a></li>
         <li><a href="#">Reports</a></li>
         <li><a href="#">About Us</a></li>
         <li><a href="SelectLoginType.php">Login</a></li>
     </ul>
 
-    <div class="hamburger-menu" onclick="toggleDropdown()">
+    <div class="hamburger-menu" id="hamburgerMenu" onclick="toggleDropdown()">
         <i class="fas fa-bars"></i>
     </div>
 
@@ -33,7 +33,20 @@
         
     </div>
     </nav>
+    <script>
+        function toggleDropdown() {
+            let dropdown = document.getElementById("dropdownMenu");
+            dropdown.classList.toggle("show");
+        }
 
-
+        //close menu when click
+        document.addEventListener('click', function(event) {
+            let dropdown = document.getElementById("dropdownMenu");
+            let hamburger = document.getElementById('hamburgerMenu');
+            if (!hamburger.contains(event.target) && !dropdown.contains(event.target)) {
+                dropdown.classList.remove('show');
+            }
+        });
+    </script>
 </body>
 </html>
