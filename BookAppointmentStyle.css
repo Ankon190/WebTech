@@ -83,3 +83,53 @@ body{
 .dropdown-Content.show{
     display: block;
 }
+
+.main-heading{
+    padding: 30px 15%;
+    font-size: 32px;
+}
+.search-section{
+    display: flex;
+    justify-content: center;
+    border-radius: 3px;
+    background-color: white;
+    padding: 15px;
+    gap:10px;
+    margin: 20px 15%;
+}
+.search-input{
+    flex:1;
+    display: flex;
+    align-items: center;
+    gap:10px;
+}
+
+.search-input input,
+.search-input select{
+    width: 100%;
+    padding: 15px 0;
+    border: none;
+    outline: none;
+    background: #f5f7fa;
+    font-size: 1rem;
+    border-radius: 5px;
+}
+.search-input input::placeholder{
+    color:black;
+}
+
+.search-btn{
+    padding: 15px 25px;
+    background-color: #466A9F;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+}
+.search-btn:hover{
+    background-color: #233f58;
+
+    transition: all 0.3s ease;
+}

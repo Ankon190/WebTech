@@ -43,7 +43,8 @@
             <i class="fas fa-search"></i>
             <input class="search-box" type="text" placeholder="Search by doctor name">
         </div>
-        <div class="search-specialist">
+        <div class="search-input">
+            <i class="fas fa-user-md"></i>
             <select class="specialist-dropdown">
                 <option value="" selected>Select Specialist</option>
                 <option value="cardiologist">Cardiologist</option>
