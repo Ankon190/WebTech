@@ -172,14 +172,16 @@ body{
     align-items: center;
 }
 .doctor-info h3{
-    font-size: 24px;
+    font-size: 20px;
     margin: 10px 0;
 }
 .doctor-info p{
     font-size: 16px;
-    font-weight: 550;
-    color: #014bb9;
+    color: #375d96;
     margin: 5px 0;
+}
+.doctor-specialty{
+    font-weight: 600;
 }
 
 .book-appointment-btn{
@@ -188,9 +190,13 @@ body{
     padding: 10px;
     background-color: transparent;
     border:2px solid #466A9F;
-    color: #014bb9;
+    color: #263a57;
     border-radius: 4px;
     font-size: 15px;
-    font-weight: 800;
+    font-weight: 600;
     transition: all 0.3s ease;
+}
+.book-appointment-btn:hover{
+    background-color: #466A9F;
+    color: white;
 }
