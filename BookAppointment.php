@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>Home</title>
-    <link rel="stylesheet" href="HomeStyle.css">
+    <link rel="stylesheet" href="BookAppointmentStyle.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         
@@ -11,8 +11,8 @@
 <body>
     <nav id="navbar">
         <ul>
-        <li><a class="active" href="House.php">Home</a></li>
-        <li><a href="BookAppointment.php">Book Appointment</a></li>
+        <li><a  href="House.php">Home</a></li>
+        <li><a class="active" href="BookAppointment.php">Book Appointment</a></li>
         <li><a href="#">Medical History</a></li>
         <li><a href="#">Profile</a></li>
         <li><a href="SelectLoginType.php">Login</a></li>
@@ -24,14 +24,27 @@
 
     <div class="dropdown-Content"  id="dropdownMenu">
         
-            <a class="active" href="House.php">Home</a>
+            <a href="House.php">Home</a>
             <a href="#">Profile</a>
-            <a href="BookAppointment.php">Book Appointment</a>
+            <a class="active" href="BookAppointment.php">Book Appointment</a>
             <a href="#">Medical History</a>
             <a href="#">Logout</a>
         
     </div>
     </nav>
+    <div>
+        <h1>
+            Find Doctors And Book Appointment
+        </h1>
+    </div>
+
+    <div class="search-section">
+        
+    </div>
+
+
+
+
     <script>
         function toggleDropdown() {
             let dropdown = document.getElementById("dropdownMenu");
