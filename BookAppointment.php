@@ -57,6 +57,19 @@
         <button type="submit" class="search-btn">Search</button>
     </div>
 
+    <div class="doctor-lists">
+        <div class="doctor-cards">
+            <div class="doctor-img">
+                <img src="portrait-professional-medical-worker-posing-picture-with-arms-folded.jpg" alt="Dr. A">
+            </div>
+            <div class="doctor-info">
+                <h2 class="doctor-name">Dr. A</h2>
+                <p class="doctor-specialty">Cardiologist</p>
+                <p class="doctor-availability">Available: Mon, Wed, Fri - 10:00 AM to 2:00 PM</p>
+                <button class="book-appointment-btn">Book Appointment</button>
+        </div>
+    </div>
+
 
 
 
