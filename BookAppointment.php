@@ -56,17 +56,31 @@
         </div>
         <button type="submit" class="search-btn">Search</button>
     </div>
-
+<!--doctor list section-->
     <div class="doctor-lists">
-        <div class="doctor-cards">
+        <!--doctor CARD 1-->
+        <div class="doctor-card">
             <div class="doctor-img">
                 <img src="portrait-professional-medical-worker-posing-picture-with-arms-folded.jpg" alt="Dr. A">
             </div>
             <div class="doctor-info">
-                <h2 class="doctor-name">Dr. A</h2>
+                <h3 class="doctor-name">Dr. A</h3>
                 <p class="doctor-specialty">Cardiologist</p>
                 <p class="doctor-availability">Available: Mon, Wed, Fri - 10:00 AM to 2:00 PM</p>
                 <button class="book-appointment-btn">Book Appointment</button>
+            </div>
+        </div>
+        <!--doctor CARD 2-->
+        <div class="doctor-card">
+            <div class="doctor-img">
+                <img src="portrait-professional-medical-worker-posing-picture-with-arms-folded.jpg" alt="Dr. A">
+            </div>
+            <div class="doctor-info">
+                <h3 class="doctor-name">Dr. B</h3>
+                <p class="doctor-specialty">Neurologist</p>
+                <p class="doctor-availability">Available: Mon, Wed, Fri - 10:00 AM to 2:00 PM</p>
+                <button class="book-appointment-btn">Book Appointment</button>
+            </div>
         </div>
     </div>
 

@@ -133,3 +133,64 @@ body{
 
     transition: all 0.3s ease;
 }
+
+.doctor-lists{
+    display:grid;
+    grid-template-columns: repeat(auto-fill,minmax(280px,1fr));
+    margin: 20px 15%;
+    gap:10px;
+
+}
+.doctor-card{
+    background-color: white;
+    border-radius: 15px;
+    align-items: center;
+    transition: transform 0.3s ease;
+}
+.doctor-card:hover{
+    transform:translateY(-5px);
+}
+.doctor-img{
+    width:100%;
+    height: 220px;
+    border-radius: 15px 15px 0 0;
+    overflow: hidden;
+    position:relative;
+
+}
+.doctor-img img{
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+}
+.doctor-info{
+    padding:20px;
+    text-align:center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.doctor-info h3{
+    font-size: 24px;
+    margin: 10px 0;
+}
+.doctor-info p{
+    font-size: 16px;
+    font-weight: 550;
+    color: #014bb9;
+    margin: 5px 0;
+}
+
+.book-appointment-btn{
+    display:block;
+    width:70%;
+    padding: 10px;
+    background-color: transparent;
+    border:2px solid #466A9F;
+    color: #014bb9;
+    border-radius: 4px;
+    font-size: 15px;
+    font-weight: 800;
+    transition: all 0.3s ease;
+}
