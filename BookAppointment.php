@@ -33,13 +33,27 @@
     </div>
     </nav>
     <div>
-        <h1>
+        <h1 class="main-heading">
             Find Doctors And Book Appointment
         </h1>
     </div>
-
+    <!--search section-->
     <div class="search-section">
-        
+        <div class="search-input">
+            <i class="fas fa-search"></i>
+            <input class="search-box" type="text" placeholder="Search by doctor name">
+        </div>
+        <div class="search-specialist">
+            <select class="specialist-dropdown">
+                <option value="" selected>Select Specialist</option>
+                <option value="cardiologist">Cardiologist</option>
+                <option value="dermatologist">Dermatologist</option>
+                <option value="neurologist">Neurologist</option>
+                <option value="pediatrician">Pediatrician</option>
+                <option value="psychiatrist">Psychiatrist</option>
+            </select>
+        </div>
+        <button type="submit" class="search-btn">Search</button>
     </div>
 
 
