@@ -13,7 +13,7 @@
         <ul>
         <li><a  href="HomePage.php">Home</a></li>
         <li><a class="active" href="BookAppointment.php">Book Appointment</a></li>
-        <li><a href="#">Medical History</a></li>
+        <li><a href="MedicalHistory.php">Medical History</a></li>
         <li><a href="#">Profile</a></li>
         <li><a href="SelectLoginType.php">Login</a></li>
     </ul>
@@ -27,7 +27,7 @@
             <a href="HomePage.php">Home</a>
             <a href="#">Profile</a>
             <a class="active" href="BookAppointment.php">Book Appointment</a>
-            <a href="#">Medical History</a>
+            <a href="MedicalHistory.php">Medical History</a>
             <a href="#">Logout</a>
         
     </div>
