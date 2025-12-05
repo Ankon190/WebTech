@@ -153,6 +153,7 @@ body{
 }
 .doctor-card:hover{
     transform:translateY(-10px);
+    cursor: pointer;
 }
 .doctor-img{
     width:100%;

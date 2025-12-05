@@ -124,3 +124,8 @@ body{
     font-size: 17px;
     border-bottom: 2px solid #f5f7fa;
 }
+.history-details table tr:hover {
+    background-color: #b3b7be;
+    transition: all 0.5s ease;
+    cursor: pointer;
+}
