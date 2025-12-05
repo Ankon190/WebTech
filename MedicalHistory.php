@@ -32,6 +32,41 @@
         
     </div>
     </nav>
+    <!--main heading-->
+    <div>
+        <h2 class="main-heading">
+            Medical History
+        </h2>
+    </div>
+    <!--medical history details-->
+    <div class="history-details">
+        <table>
+            <tr>
+                <th>Date</th>
+                <th>Doctor</th>
+                <th>Diagnosis</th>
+                <th>Prescriptions</th>
+            </tr>
+            <tr>
+                <td>2024-05-10</td>
+                <td>Dr. John Smith</td>
+                <td>Hypertension</td>
+                <td>Amlodipine 5mg daily</td>
+            </tr>
+            <tr>
+                <td>2024-04-22</td>
+                <td>Dr. Emily Davis</td>
+                <td>Eczema</td>
+                <td>Hydrocortisone cream</td>
+            </tr>
+            <tr>
+                <td>2024-03-15</td>
+                <td>Dr. Michael Brown</td>
+                <td>Migraine</td>
+                <td>Sumatriptan as needed</td>
+            </tr>
+        </table>
+    </div>
     <script>
         function toggleDropdown() {
             let dropdown = document.getElementById("dropdownMenu");

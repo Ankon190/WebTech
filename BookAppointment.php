@@ -33,9 +33,9 @@
     </div>
     </nav>
     <div>
-        <h1 class="main-heading">
+        <h2 class="main-heading">
             Find Doctors And Book Appointment
-        </h1>
+        </h2>
     </div>
     <!--search section-->
     <div class="search-section">

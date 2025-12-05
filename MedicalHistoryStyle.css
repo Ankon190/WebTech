@@ -86,3 +86,31 @@ body{
 .dropdown-Content.show{
     display: block;
 }
+
+.main-heading{
+    padding: 30px 15%;
+ 
+}
+
+.history-details{
+    margin: 20px 15%;
+    border-radius: 15px;
+    overflow: hidden;
+    background-color: white;
+}
+.history-details table{
+    background-color: white;
+    width: 100%;
+}
+.history-details table tr{
+    border-bottom: 1px solid #ddd;
+    height: 40px;
+    width: 100%;
+}
+.history-details table tr th{
+    width:25%;
+    text-align: left;
+    padding: 10px;
+    background-color: #466A9F;
+    color: white;
+}
