@@ -93,6 +93,7 @@ body{
 }
 
 .history-details{
+    display: flex;
     margin: 20px 15%;
     border-radius: 15px;
     overflow: hidden;
@@ -101,6 +102,7 @@ body{
 .history-details table{
     background-color: white;
     width: 100%;
+    border-collapse: collapse;
 }
 .history-details table tr{
     border-bottom: 1px solid #ddd;
@@ -110,7 +112,15 @@ body{
 .history-details table tr th{
     width:25%;
     text-align: left;
-    padding: 10px;
+    border: none;
+    padding: 15px 20px;
     background-color: #466A9F;
     color: white;
+    font-size: 20px;
+}
+.history-details table tr td{
+    padding: 10px 20px;
+    text-align: left;
+    font-size: 17px;
+    border-bottom: 2px solid #f5f7fa;
 }
