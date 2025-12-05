@@ -11,7 +11,7 @@
 <body>
     <nav id="navbar">
         <ul>
-        <li><a class="active" href="House.php">Home</a></li>
+        <li><a class="active" href="HomePage.php">Home</a></li>
         <li><a href="BookAppointment.php">Book Appointment</a></li>
         <li><a href="#">Medical History</a></li>
         <li><a href="#">Profile</a></li>
@@ -24,7 +24,7 @@
 
     <div class="dropdown-Content"  id="dropdownMenu">
         
-            <a class="active" href="House.php">Home</a>
+            <a class="active" href="HomePage.php">Home</a>
             <a href="#">Profile</a>
             <a href="BookAppointment.php">Book Appointment</a>
             <a href="#">Medical History</a>
