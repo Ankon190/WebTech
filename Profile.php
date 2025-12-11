@@ -38,10 +38,14 @@
             <i class="fas fa-user"><h2>My Profile</h2></i>
         </div>
 
-    <!-- Profiles Other info -->
+    <!-- Profiles info with photo -->
    
-        <div>
-
+        <div class="profile-photo-section">
+            <div class="profile-photo">
+                <img src="portrait-professional-medical-worker-posing-picture-with-arms-folded.jpg" alt="Profile Photo">
+            </div>
+            <p>Patient ID: #123456</p>
+            
         </div>
         <!-- Main Profile Info -->
         <div class="profile-info">
@@ -81,21 +85,21 @@
             </div>
 
             <div class="info-form">
-                <label for="age"> Age</label>
-                <div class="info-box">
-                    <span>30</span>
-                </div>
-            </div>
-
-            <div class="info-form">
                 <label for="address"> Address</label>
                 <div class="info-box">
                     <span>123 Main St, City, Country</span>
                 </div>
             </div>
-
+            
         </div>
-
+        <div class="btn-container">
+            <div class="btn-section">
+                <button class="edit-profile">Edit Profile</button>
+            </div>
+            <div class="btn-section">
+                <button class="logout">Logout</button>
+            </div>
+        </div>
 
     </div>
 

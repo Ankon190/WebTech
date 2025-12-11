@@ -97,8 +97,46 @@ body{
 }
 
 .profile-container{
-    width:80%;
+    width:70%;
     margin:auto;
+}
+
+.profile-photo-section{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    margin-bottom: 20px auto;
+}
+.profile-photo-section p{
+    margin: 5px 0;
+    font-size: 14px;
+    color: #000000;
+    opacity:0.7;
+    font-weight: 600;
+    margin: 20px 0;
+}
+
+.profile-photo-section h3{
+    
+    font-size: 20px;
+    font-weight: 600;
+    color: #333333;
+
+}
+
+.profile-photo{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid #466A9F;
+}
+.profile-photo img{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
 }
 
 .profile-info{
@@ -111,7 +149,7 @@ body{
     display:block;
     color:black;
     margin-bottom: 8px;
-    font-size: 13px;
+    font-size: 15px;
     font-weight: 500;
 
 }
@@ -126,4 +164,24 @@ body{
     font-size: 15px;
     opacity:0.7;
 }
+.btn-container{
+    display: flex;
+    justify-content: center;
+    margin: 30px 0;
+}
 
+.btn-section button{
+    margin: 0 30px;
+    height:40px;
+    width:100px;
+    border:none;
+    font-size: 16px;
+    background-color: #466A9F;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.btn-section button:hover{
+    background-color: #2a446b;
+}
