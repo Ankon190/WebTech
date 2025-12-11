@@ -40,6 +40,9 @@
                 <p style="font-size: 18px;margin: -10px 0 10px 0;"> Select Gender: </p>
                 <input type="radio" name="gender1" id="male"><label>Male</label>
                 <input type="radio" name="gender1" id="female"><label>Female</label>
+            </div>
+            <div class="input-box-photo">
+                <input type="file" name="" id="photo">
             </div><br>
             <div class="terms-conditions">
                 <label><input type="checkbox" id="terms">I accept the terms and conditions</label>
@@ -61,9 +64,10 @@
                 let password = document.getElementById('password').value;
                 let male = document.getElementById('male').checked;
                 let female = document.getElementById('female').checked;
+                let photo = document.getElementById('photo').value;
                 let terms = document.getElementById('terms').checked;
 
-            if(fname=="" || lname=="" || email=="" || dob=="" ||bloodgroup=="" || weight=="" || address=="" || password=="" || (!male && !female) || !terms) {
+            if(fname=="" || lname=="" || email=="" || dob=="" ||bloodgroup=="" || weight=="" || address=="" || password=="" || (!male && !female) || !photo || !terms) {
                 alert("Please fill all the fields and accept the terms.");
                 return false;
             }
