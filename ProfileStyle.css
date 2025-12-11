@@ -86,3 +86,44 @@ body{
 .dropdown-Content.show{
     display: block;
 }
+
+.profile-header{
+    text-align: left;
+    margin:20px;
+}
+.profile-header i h2{
+    display: inline-block;
+    margin: 0 10px;
+}
+
+.profile-container{
+    width:80%;
+    margin:auto;
+}
+
+.profile-info{
+    display:grid;
+    grid-template-columns: repeat(2,1fr);
+    gap:20px;
+}
+
+.info-form label{
+    display:block;
+    color:black;
+    margin-bottom: 8px;
+    font-size: 13px;
+    font-weight: 500;
+
+}
+
+.info-box{
+    background-color: #f8f9fa;
+    padding:12px 15px;
+    border:1px solid #e9ecef;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    font-size: 15px;
+    opacity:0.7;
+}
+

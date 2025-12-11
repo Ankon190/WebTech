@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>Home</title>
-    <link rel="stylesheet" href="HomeStyle.css">
+    <link rel="stylesheet" href="ProfileStyle.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         
@@ -32,6 +32,76 @@
         
     </div>
     </nav>
+     <div class="profile-container">
+    <!-- Profile Header -->
+        <div class="profile-header">
+            <i class="fas fa-user"><h2>My Profile</h2></i>
+        </div>
+
+    <!-- Profiles Other info -->
+   
+        <div>
+
+        </div>
+        <!-- Main Profile Info -->
+        <div class="profile-info">
+            <div class="info-form">
+                <label for="name"> Full Name</label>
+                <div class="info-box">
+                    <span>John Deo</span>
+                </div>
+            </div>
+
+            <div class="info-form">
+                <label for="email"> Email</label>
+                <div class="info-box">
+                    <span>john.doe@example.com</span>
+                </div>
+            </div>
+
+            <div class="info-form">
+                <label for="number"> Phone Number</label>
+                <div class="info-box">
+                    <span>01712345678</span>
+                </div>
+            </div>
+
+            <div class="info-form">
+                <label for="gender"> Gender</label>
+                <div class="info-box">
+                    <span>Male</span>
+                </div>
+            </div>
+
+            <div class="info-form">
+                <label for="dob"> Date of Birth</label>
+                <div class="info-box">
+                    <span>01/01/1990</span>
+                </div>
+            </div>
+
+            <div class="info-form">
+                <label for="age"> Age</label>
+                <div class="info-box">
+                    <span>30</span>
+                </div>
+            </div>
+
+            <div class="info-form">
+                <label for="address"> Address</label>
+                <div class="info-box">
+                    <span>123 Main St, City, Country</span>
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+
+
     <script>
         function toggleDropdown() {
             let dropdown = document.getElementById("dropdownMenu");
