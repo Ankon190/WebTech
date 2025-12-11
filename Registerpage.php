@@ -25,6 +25,15 @@
                 <input type="date" id="dob" >
             </div>
             <div class="input-box">
+                <input type="text" name="" id="bloodgroup" placeholder="Blood Group">
+            </div>
+            <div class="input-box">
+                <input type="number" name="" id="weight" placeholder="Weight (in kg)">
+            </div>
+            <div class="input-box">
+                <input type="text" name="" id="address" placeholder="Address">
+            </div>
+            <div class="input-box">
                 <input type="password" placeholder="Password" id="password" >
             </div>
             <div class="gender">
@@ -42,16 +51,19 @@
     <script>
         function validation(event) {
             event.preventDefault();
-            const fname = document.getElementById('fname').value;
-            const lname = document.getElementById('lname').value;
-            const email = document.getElementById('email').value;
-            const dob = document.getElementById('dob').value;
-            const password = document.getElementById('password').value;
-            const male = document.getElementById('male').checked;
-            const female = document.getElementById('female').checked;
-            const terms = document.getElementById('terms').checked;
+                let fname = document.getElementById('fname').value;
+                let lname = document.getElementById('lname').value;
+                let email = document.getElementById('email').value;
+                let dob = document.getElementById('dob').value;
+                let bloodgroup = document.getElementById('bloodgroup').value;
+                let weight = document.getElementById('weight').value;
+                let address = document.getElementById('address').value;
+                let password = document.getElementById('password').value;
+                let male = document.getElementById('male').checked;
+                let female = document.getElementById('female').checked;
+                let terms = document.getElementById('terms').checked;
 
-            if(fname=="" || lname=="" || email=="" || dob=="" || password=="" || (!male && !female) || !terms) {
+            if(fname=="" || lname=="" || email=="" || dob=="" ||bloodgroup=="" || weight=="" || address=="" || password=="" || (!male && !female) || !terms) {
                 alert("Please fill all the fields and accept the terms.");
                 return false;
             }
