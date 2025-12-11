@@ -14,7 +14,7 @@
         <li><a href="HomePage.php">Home</a></li>
         <li><a href="BookAppointment.php">Book Appointment</a></li>
         <li><a class="active" href="MedicalHistory.php">Medical History</a></li>
-        <li><a href="#">Profile</a></li>
+        <li><a href="Profile.php">Profile</a></li>
         <li><a href="SelectLoginType.php">Login</a></li>
     </ul>
 
@@ -25,7 +25,7 @@
     <div class="dropdown-Content"  id="dropdownMenu">
         
             <a href="HomePage.php">Home</a>
-            <a href="#">Profile</a>
+            <a href="Profile.php">Profile</a>
             <a href="BookAppointment.php">Book Appointment</a>
             <a class="active" href="MedicalHistory.php">Medical History</a>
             <a href="#">Logout</a>
