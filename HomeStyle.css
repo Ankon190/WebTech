@@ -86,3 +86,63 @@ body{
 .dropdown-Content.show{
     display: block;
 }
+
+.main-container{
+    width: 60%;
+    margin: 20px auto;
+}
+
+.welcome-msg{
+    text-align: left;
+    margin-bottom: 30px;
+}
+.welcome-msg p{
+    font-size: 17px;
+    color: black;
+    opacity: 0.8;
+}
+
+.appointment-alert{
+    background-color: #ffffff;
+    padding:20px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    
+}
+.appointment-icon{
+    height:60px;
+    width:60px;
+    font-size: 30px;
+    color: #466A9F;
+}
+.appointment-alert a{
+    height: 40px;
+    width: 120px;
+    text-decoration: none;
+    text-align: center;
+    padding: 11px 0;
+    background-color:white ;
+    color: #466A9F;
+    border: 1px solid #466A9F;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+.appointment-alert a:hover{
+    background-color: #466A9F;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.appointment-details{
+    margin:auto;
+}
+
+.appointment-date{
+    display: inline-block;
+    background-color: #e3f2fd;
+    color:#1f4d91;
+    border-radius: 5px;
+    margin-top:5px;
+}

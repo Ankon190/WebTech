@@ -1,6 +1,8 @@
 <?php
 //declaring variables
     $patient_name = "John Doe";
+    $appointed_doctor = "Dr. Smith";
+    $specialization = "Cardiologist";
     $appointment_date = "2025-12-31";
 ?>
 
@@ -50,9 +52,23 @@
 
         <!-- Appointment Alert -->
         <div class="appointment-alert">
-            <h2>Upcoming Appointment</h2>
-            <p>You have an appointment scheduled on <strong><?php echo date("F j, Y", strtotime($appointment_date)); ?></strong>.</p>
-            <a href="BookAppointment.php" class="btn">View Details</a>
+            <?php if($appointed_doctor && $appointment_date): ?>
+                <div class="appointment-icon">
+                    <i class="fas fa-calendar-check"></i>
+                </div>
+                <div class="appointment-details">
+                    <h2>Upcoming Appointment</h2>
+                    <p><?php echo $appointed_doctor; ?> - <?php echo $specialization; ?></p>
+                    <p class="appointment-date"> Date: <?php echo $appointment_date; ?> </p>
+                </div>
+                <a href="BookAppointment.php" class="btn">View Details</a>
+            <?php else: ?>
+                <div class="no-appointment">
+                    <h2>No Upcoming Appointments</h2>
+                    <p>You have no appointments scheduled. Book one now!</p>
+                    <a href="BookAppointment.php" class="btn">Book Appointment</a>
+                </div>
+            <?php endif; ?>
         </div>
     </div>
 
