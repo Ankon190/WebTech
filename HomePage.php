@@ -52,7 +52,7 @@
         <div class="appointment-alert">
             <h2>Upcoming Appointment</h2>
             <p>You have an appointment scheduled on <strong><?php echo date("F j, Y", strtotime($appointment_date)); ?></strong>.</p>
-            <a href="BookAppointment.php" class="btn">View Appointments</a>
+            <a href="BookAppointment.php" class="btn">View Details</a>
         </div>
     </div>
 
