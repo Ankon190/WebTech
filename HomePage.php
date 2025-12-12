@@ -1,3 +1,11 @@
+<?php
+//declaring variables
+    $patient_name = "John Doe";
+    $appointment_date = "2025-12-31";
+?>
+
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,6 +40,25 @@
         
     </div>
     </nav>
+
+    <div class="main-container">
+        <!-- Welcome message -->
+        <div class="welcome-msg">
+            <h1>Welcome, <?php echo $patient_name; ?>!</h1>
+            <p>Here is your health overview for today</p>
+        </div>
+
+        <!-- Appointment Alert -->
+        <div class="appointment-alert">
+            <h2>Upcoming Appointment</h2>
+            <p>You have an appointment scheduled on <strong><?php echo date("F j, Y", strtotime($appointment_date)); ?></strong>.</p>
+            <a href="BookAppointment.php" class="btn">View Appointments</a>
+        </div>
+    </div>
+
+
+
+    <!-- javascript validation starts here -->
     <script>
         function toggleDropdown() {
             let dropdown = document.getElementById("dropdownMenu");
