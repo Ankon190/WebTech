@@ -1,18 +1,35 @@
 <?php
-    $email = "";
+    $fname = $lname = $email = $dob = $bloodgroup = $weight = $address = $password = $gender = $terms = "";
     $errormsg = "";
 
     if($_SERVER["REQUEST_METHOD"] == "POST"){
-        $email = trim($_POST["email"]);
+        $fname = trim($_POST['fname'] ?? '');
+        $lname = trim($_POST['lname'] ?? '');
+        $email = trim($_POST['email'] ?? '');
+        $dob = trim($_POST['dob'] ?? '');
+        $bloodgroup = trim($_POST['bloodgroup'] ?? '');
+        $weight = trim($_POST['weight'] ?? '');
+        $address = trim($_POST['address'] ?? '');
+        $password = trim($_POST['password'] ?? '');
+        $gender = $_POST['gender'] ?? '';
+        $terms = $_POST['terms'] ?? '';
 
-        if(empty($email)){
-            $errormsg = "Email cannot be empty";
+        if((empty($fname)) || (empty($lname)) || (empty($email)) || (empty($dob)) || (empty($bloodgroup)) || (empty($weight)) || (empty($address)) || (empty($password)) || (empty($gender)) || (!isset($terms))){
+            $errormsg = "All fields are required";
         }
+        //email validation
         elseif(!filter_var($email, FILTER_VALIDATE_EMAIL)){
             $errormsg = "Enter valid email address (e.g., anything@example.com)";
         }
+        elseif(strlen($password) < 8){
+            $errormsg = "Password must be at least 8 characters long";
+        }
+        elseif(!preg_match('/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d).{8,}$/', $password)){
+            $errormsg = "Password must be at least 8 characters with uppercase, lowercase, and number";
+        }
+
         else{
-            $errormsg = "✓ Valid Email";
+            $errormsg = "✓ Registration Successful";
         }
     }
 ?>
@@ -32,33 +49,33 @@
         <form action="" method="post">
             <h1>Register</h1>
             <div class="input-box">
-                <input type="text" placeholder="First Name" id="fname">
+                <input type="text" name="fname" placeholder="First Name" id="fname">
             </div>
             <div class="input-box">
-                <input type="text" placeholder="Last Name" id="lname" >
+                <input type="text" name="lname" placeholder="Last Name" id="lname" >
             </div>
             <div class="input-box">
                 <input type="text" name="email" placeholder="Email" id="email" >
             </div>
              <div class="input-box">
-                <input type="date" id="dob" >
+                <input type="date" name="dob" id="dob" >
             </div>
             <div class="input-box">
-                <input type="text" name="" id="bloodgroup" placeholder="Blood Group">
+                <input type="text" name="bloodgroup" id="bloodgroup" placeholder="Blood Group">
             </div>
             <div class="input-box">
-                <input type="number" name="" id="weight" placeholder="Weight (in kg)">
+                <input type="number" name="weight" id="weight" placeholder="Weight (in kg)">
             </div>
             <div class="input-box">
-                <input type="text" name="" id="address" placeholder="Address">
+                <input type="text" name="address" id="address" placeholder="Address">
             </div>
             <div class="input-box">
-                <input type="password" placeholder="Password" id="password" >
+                <input type="password" name="password" placeholder="Password" id="password" >
             </div>
             <div class="gender">
                 <p style="font-size: 18px;margin: -10px 0 10px 0;"> Select Gender: </p>
-                <input type="radio" name="gender1" id="male"><label>Male</label>
-                <input type="radio" name="gender1" id="female"><label>Female</label>
+                <input type="radio" name="gender" id="male"><label>Male</label>
+                <input type="radio" name="gender" id="female"><label>Female</label>
             </div>
             <div class="input-box-photo">
                 <input type="file" name="" id="photo">
