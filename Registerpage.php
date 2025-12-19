@@ -1,3 +1,22 @@
+<?php
+    $email = "";
+    $errormsg = "";
+
+    if($_SERVER["REQUEST_METHOD"] == "POST"){
+        $email = trim($_POST["email"]);
+
+        if(empty($email)){
+            $errormsg = "Email cannot be empty";
+        }
+        elseif(!filter_var($email, FILTER_VALIDATE_EMAIL)){
+            $errormsg = "Enter valid email address (e.g., anything@example.com)";
+        }
+        else{
+            $errormsg = "✓ Valid Email";
+        }
+    }
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,7 +29,7 @@
 
 <body>
     <div class="wrapper">
-        <form action="" method="post" onsubmit="validation(event)"> 
+        <form action="" method="post">
             <h1>Register</h1>
             <div class="input-box">
                 <input type="text" placeholder="First Name" id="fname">
@@ -19,7 +38,7 @@
                 <input type="text" placeholder="Last Name" id="lname" >
             </div>
             <div class="input-box">
-                <input type="text" placeholder="Email" id="email" >
+                <input type="text" name="email" placeholder="Email" id="email" >
             </div>
              <div class="input-box">
                 <input type="date" id="dob" >
@@ -47,40 +66,22 @@
             <div class="terms-conditions">
                 <label><input type="checkbox" id="terms">I accept the terms and conditions</label>
             </div>
+            <?php 
+                if(!empty($errormsg)){
+                    echo '<div class="error-msg">'.$errormsg.'</div>';
+                } 
+            ?><br>
             <button type="submit" class="btn">Register</button>
         </form>
     </div>
 
     <script>
-        function validation(event) {
-            event.preventDefault();
-                let fname = document.getElementById('fname').value;
-                let lname = document.getElementById('lname').value;
-                let email = document.getElementById('email').value;
-                let dob = document.getElementById('dob').value;
-                let bloodgroup = document.getElementById('bloodgroup').value;
-                let weight = document.getElementById('weight').value;
-                let address = document.getElementById('address').value;
-                let password = document.getElementById('password').value;
-                let male = document.getElementById('male').checked;
-                let female = document.getElementById('female').checked;
-                let photo = document.getElementById('photo').value;
-                let terms = document.getElementById('terms').checked;
-
-            if(fname=="" || lname=="" || email=="" || dob=="" ||bloodgroup=="" || weight=="" || address=="" || password=="" || (!male && !female) || !photo || !terms) {
-                alert("Please fill all the fields and accept the terms.");
-                return false;
-            }
-            if(password.length < 6) {
-                alert("Password must be at least 6 characters long.");
-                return false;
-            }
-            if(!email.includes("@")|| !email.includes(".")) {
-                alert("Please enter a valid email address.");
-                return false;
-        }
-        alert("Registration successful!"); 
-    }
+        
     </script>
 </body>
 </html>
+
+
+<?php
+    
+?>
