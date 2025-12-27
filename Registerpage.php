@@ -1,5 +1,5 @@
 <?php
-    $fname = $lname = $email = $dob = $bloodgroup = $weight = $address = $password = $gender = $terms = "";
+    $fname = $lname = $email = $dob = $bloodgroup = $weight = $address = $password = $gender = $user = $terms = "";
     $errormsg = "";
 
     if($_SERVER["REQUEST_METHOD"] == "POST"){
@@ -12,9 +12,10 @@
         $address = trim($_POST['address'] ?? '');
         $password = trim($_POST['password'] ?? '');
         $gender = $_POST['gender'] ?? '';
+        $user = $_POST['reg-as'] ?? '';
         $terms = $_POST['terms'] ?? '';
 
-        if((empty($fname)) || (empty($lname)) || (empty($email)) || (empty($dob)) || (empty($bloodgroup)) || (empty($weight)) || (empty($address)) || (empty($password)) || (empty($gender)) || (!isset($terms))){
+        if((empty($fname)) || (empty($lname)) || (empty($email)) || (empty($dob)) || (empty($bloodgroup)) || (empty($weight)) || (empty($address)) || (empty($password)) || (empty($gender)) || (empty($user)) || (!isset($terms))){
             $errormsg = "All fields are required";
         }
         //email validation
@@ -73,9 +74,14 @@
                 <input type="password" name="password" placeholder="Password" id="password" >
             </div>
             <div class="gender">
-                <p style="font-size: 18px;margin: -10px 0 10px 0;"> Select Gender: </p>
+                <p style="font-size: 16px; "> Select Gender : </p>
                 <input type="radio" name="gender" id="male"><label>Male</label>
                 <input type="radio" name="gender" id="female"><label>Female</label>
+            </div>
+            <div class="reg-as">
+                <p style="font-size: 16px;"> Register As : </p>
+                <input type="radio" name="user" id="patient"><label>Patient</label>
+                <input type="radio" name="user" id="doctor"><label>Doctor</label>
             </div>
             <div class="input-box-photo">
                 <input type="file" name="" id="photo">
