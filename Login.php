@@ -1,4 +1,7 @@
 <?php
+//database connection
+require_once 'MySQL.php';
+
 //session created
 session_start();
 if(isset($_SESSION['username'])) {

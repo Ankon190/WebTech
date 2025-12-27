@@ -1,10 +1,12 @@
 <?php
-    $fname = $lname = $email = $dob = $bloodgroup = $weight = $address = $password = $gender = $user = $terms = "";
+//database connection
+require_once 'MySQL.php';
+
+    $name = $email = $dob = $bloodgroup = $weight = $address = $password = $gender = $user = $terms = "";
     $errormsg = "";
 
     if($_SERVER["REQUEST_METHOD"] == "POST"){
-        $fname = trim($_POST['fname'] ?? '');
-        $lname = trim($_POST['lname'] ?? '');
+        $name = trim($_POST['name'] ?? '');
         $email = trim($_POST['email'] ?? '');
         $dob = trim($_POST['dob'] ?? '');
         $bloodgroup = trim($_POST['bloodgroup'] ?? '');
@@ -50,10 +52,7 @@
         <form action="" method="post">
             <h1>Register</h1>
             <div class="input-box">
-                <input type="text" name="fname" placeholder="First Name" id="fname">
-            </div>
-            <div class="input-box">
-                <input type="text" name="lname" placeholder="Last Name" id="lname" >
+                <input type="text" name="name" placeholder="Name" id="name">
             </div>
             <div class="input-box">
                 <input type="text" name="email" placeholder="Email" id="email" >
