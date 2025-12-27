@@ -1,3 +1,16 @@
+<?php
+
+//session created
+session_start();
+
+if(!isset($_SESSION['username'])){
+    header("Location: Login.php");
+    exit();
+//declaring variables
+    $patient_name = "John Doe";
+}
+
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,8 +27,8 @@
         <li><a href="HomePage.php">Home</a></li>
         <li><a href="BookAppointment.php">Book Appointment</a></li>
         <li><a href="MedicalHistory.php">Medical History</a></li>
-        <li><a class="active" href="Profile.php">Profile</a></li>
-        <li><a href="SelectLoginType.php">Login</a></li>
+        <li><a class="active" href="Profile.php"><?php echo htmlspecialchars($patient_name); ?></a></li>
+        <li><a href="Logout.php">Logout</a></li>
     </ul>
 
     <div class="hamburger-menu" id="hamburgerMenu" onclick="toggleDropdown()">
