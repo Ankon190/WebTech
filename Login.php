@@ -1,3 +1,27 @@
+<?php
+session_start();
+if(isset($_SESSION['username'])) {
+    header("Location: HomePage.php");
+    exit();
+}
+
+if($_SERVER["REQUEST_METHOD"]=="POST") {
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+
+    // Dummy authentication for demonstration
+    if($username === "user" && $password === "pass") {
+        $_SESSION['username'] = $username;
+        header("Location: HomePage.php");
+        exit();
+    } else {
+        $error = "Invalid username or password.";
+    }
+}
+
+?>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,10 +34,11 @@
         <form action="">
             <h1>Login</h1>
             <div class="input-box">
-                <input type="text" placeholder="Username" required>
+                <input type="text" name="username" placeholder="Username" required>
             </div>
             <div class="input-box">
-                <input type="password" placeholder="Password" required>
+                <input type="password" name="password" placeholder="Password" required>
+                <?php if(isset($error)) { echo "<p class='error-msg'>" . $error . "</p>"; } ?>
             </div>
             <div class="remember-forget">
                 <label><input type="checkbox">Remember me</label>
