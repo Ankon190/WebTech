@@ -110,7 +110,7 @@ if(!isset($_SESSION['username'])){
                 <button class="edit-profile">Edit Profile</button>
             </div>
             <div class="btn-section">
-                <button class="logout">Logout</button>
+                <button class="logout"><a href="Logout.php">Logout</a></button>
             </div>
         </div>
 
@@ -119,6 +119,6 @@ if(!isset($_SESSION['username'])){
 <!-- hamburger menu js code -->
     <script src="hamburgerMenu.js"> </script>
 
-    
+
 </body>
 </html>

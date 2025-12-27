@@ -185,3 +185,7 @@ body{
 .btn-section button:hover{
     background-color: #2a446b;
 }
+.logout a{
+    text-decoration: none;
+    color: white;
+}
