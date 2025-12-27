@@ -34,8 +34,9 @@ if(!isset($_SESSION['username'])){
         <li><a class="active" href="HomePage.php">Home</a></li>
         <li><a href="BookAppointment.php">Book Appointment</a></li>
         <li><a href="MedicalHistory.php">Medical History</a></li>
-        <li><a href="Profile.php">Profile</a></li>
-        <li><a href="SelectLoginType.php">Login</a></li>
+        <li><a href="Profile.php"><?php echo htmlspecialchars($patient_name); ?></a></li>
+     <!--   <li><a href="SelectLoginType.php">Login</a></li> -->
+        <li><a href="Logout.php">Logout</a></li>
     </ul>
 
     <div class="hamburger-menu" id="hamburgerMenu" onclick="toggleDropdown()">
@@ -48,7 +49,7 @@ if(!isset($_SESSION['username'])){
             <a href="Profile.php">Profile</a>
             <a href="BookAppointment.php">Book Appointment</a>
             <a href="MedicalHistory.php">Medical History</a>
-            <a href="#">Logout</a>
+            <a href="Logout.php">Logout</a>
         
     </div>
     </nav>
