@@ -1,6 +1,6 @@
 <?php
 //database connection
-require_once 'MySQL.php';
+require 'MySQL.php';
 
     $name = $email = $dob = $bloodgroup = $weight = $address = $password = $gender = $user = $terms = "";
     $errormsg = "";
