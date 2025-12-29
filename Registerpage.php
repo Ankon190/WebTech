@@ -1,7 +1,7 @@
 <?php
 //database connection
 require 'db_connect.php';
-
+require 'reg_validation.php';
     
 ?>
 
