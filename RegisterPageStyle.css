@@ -102,6 +102,15 @@ body {
 }
 
 .error-msg{
+    color: #ac3f3f;
+    margin: 10px;
+    border-radius: 5px;
+    font-size: 20px;
+    text-align: center;
+    font-weight: 600;
+}
+
+.success-msg{
     color: #24f808;
     margin: 10px;
     border-radius: 5px;

@@ -47,8 +47,8 @@ require 'reg_validation.php';
             </div>
             <div class="reg-as">
                 <p style="font-size: 16px;"> Register As : </p>
-                <input type="radio" name="user" id="patient"><label>Patient</label>
-                <input type="radio" name="user" id="doctor"><label>Doctor</label>
+                <input type="radio" name="user" id="patient" value="patient"><label>Patient</label>
+                <input type="radio" name="user" id="doctor" value="doctor"><label>Doctor</label>
             </div>
             <div class="input-box-photo">
                 <input type="file" name="" id="photo">
@@ -59,7 +59,10 @@ require 'reg_validation.php';
             <?php 
                 if(!empty($errormsg)){
                     echo '<div class="error-msg">'.$errormsg.'</div>';
-                } 
+                }
+                if(!empty($success)){
+                    echo '<div class="success-msg">'.$success.'</div>';
+                }
             ?><br>
             <button type="submit" class="btn">Register</button>
         </form>
