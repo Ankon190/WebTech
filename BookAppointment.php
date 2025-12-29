@@ -1,6 +1,6 @@
 <?php
 //database connection
-require 'MySQL.php';
+require 'db_connect.php';
 //session created
 session_start();
 
