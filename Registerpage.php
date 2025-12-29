@@ -42,8 +42,8 @@ require 'reg_validation.php';
             </div>
             <div class="gender">
                 <p style="font-size: 16px; "> Select Gender : </p>
-                <input type="radio" name="gender" id="male"><label>Male</label>
-                <input type="radio" name="gender" id="female"><label>Female</label>
+                <input type="radio" name="gender" id="male" value="male"><label>Male</label>
+                <input type="radio" name="gender" id="female" value="female"><label>Female</label>
             </div>
             <div class="reg-as">
                 <p style="font-size: 16px;"> Register As : </p>
