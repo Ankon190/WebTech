@@ -4,16 +4,16 @@
     $has_error = false;
 
     if($_SERVER["REQUEST_METHOD"] == "POST"){
-        $name = trim($_POST['name'] ?? '');
-        $email = trim($_POST['email'] ?? '');
-        $dob = trim($_POST['dob'] ?? '');
-        $bloodgroup = trim($_POST['bloodgroup'] ?? '');
-        $weight = trim($_POST['weight'] ?? '');
-        $address = trim($_POST['address'] ?? '');
-        $password = trim($_POST['password'] ?? '');
-        $gender = $_POST['gender'] ?? '';
-        $user = $_POST['user'] ?? '';
-        $terms = $_POST['terms'] ?? '';
+        $name = $_POST['name'];
+        $email = $_POST['email'];
+        $dob = $_POST['dob'];
+        $bloodgroup = $_POST['bloodgroup'];
+        $weight = $_POST['weight'];
+        $address = $_POST['address'];
+        $password = $_POST['password'];
+        $gender = $_POST['gender'];
+        $user = $_POST['user'];
+        $terms = isset($_POST['terms']);
 
         //checks for empty fields
         if((empty($name)) || (empty($email)) || (empty($dob)) || (empty($bloodgroup)) || (empty($weight)) || (empty($address)) || (empty($password)) || (empty($gender)) || (empty($user)) || (!isset($terms))){
