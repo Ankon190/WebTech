@@ -7,6 +7,7 @@ if(!isset($_SESSION['username'])){
     header("Location: Login.php");
     exit();
 }
+
 else{
     $username = $_SESSION['username'];
     $stmt = $conn->prepare("SELECT user_name FROM users WHERE user_name = ?");
