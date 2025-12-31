@@ -9,8 +9,26 @@ if(!isset($_SESSION['username'])){
     header("Location: Login.php");
     exit();
 }
-//declaring variables
-    $patient_name = "John Doe";
+else{
+    $username = $_SESSION['username'];
+    $stmt = $conn->prepare("SELECT * FROM patient WHERE user_name = ?");
+    $stmt->bind_param("s", $username);
+    $stmt->execute();
+    $user_result = $stmt -> get_result();
+
+    if($user_result ->num_rows ===1){
+        $user = $user_result -> fetch_assoc();
+        $patient_name = $user['user_name'];
+        $patient_id = $user['user_id'];
+        $patient_email = $user['user_email'];
+        $patient_dob = $user['dob'];
+        $patient_gender = $user['gender'];
+        $patient_address = $user['address'];
+        $patient_bloodgroup = $user['blood_group'];
+        $patient_weight = $user['weight'];
+    }
+    $stmt->close();
+}
 
 ?>
 <!DOCTYPE html>
@@ -59,7 +77,7 @@ if(!isset($_SESSION['username'])){
             <div class="profile-photo">
                 <img src="portrait-professional-medical-worker-posing-picture-with-arms-folded.jpg" alt="Profile Photo">
             </div>
-            <p>Patient ID: #123456</p>
+            <p>Patient ID: <?php echo htmlspecialchars($patient_id); ?></p>
             
         </div>
         <!-- Main Profile Info -->
@@ -67,42 +85,42 @@ if(!isset($_SESSION['username'])){
             <div class="info-form">
                 <label for="name"> Full Name</label>
                 <div class="info-box">
-                    <span>John Deo</span>
+                    <span><?php echo htmlspecialchars($patient_name); ?></span>
                 </div>
             </div>
 
             <div class="info-form">
                 <label for="email"> Email</label>
                 <div class="info-box">
-                    <span>john.doe@example.com</span>
+                    <span><?php echo htmlspecialchars($patient_email); ?></span>
                 </div>
             </div>
 
             <div class="info-form">
-                <label for="number"> Phone Number</label>
+                <label for="number"> Blood Group</label>
                 <div class="info-box">
-                    <span>01712345678</span>
+                    <span><?php echo htmlspecialchars($patient_bloodgroup); ?></span>
                 </div>
             </div>
 
             <div class="info-form">
                 <label for="gender"> Gender</label>
                 <div class="info-box">
-                    <span>Male</span>
+                    <span><?php echo htmlspecialchars($patient_gender); ?></span>
                 </div>
             </div>
 
             <div class="info-form">
                 <label for="dob"> Date of Birth</label>
                 <div class="info-box">
-                    <span>01/01/1990</span>
+                    <span><?php echo htmlspecialchars($patient_dob); ?></span>
                 </div>
             </div>
 
             <div class="info-form">
                 <label for="address"> Address</label>
                 <div class="info-box">
-                    <span>123 Main St, City, Country</span>
+                    <span><?php echo htmlspecialchars($patient_address); ?></span>
                 </div>
             </div>
             

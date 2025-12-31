@@ -47,7 +47,7 @@
             //check if the user is patient or doctor
             if($user === "patient"){
                //data insertion query in tables
-                $reg_insert_query = "INSERT INTO patient (user_name, dob, gender, blood_group, weight, address) VALUES ('$name', '$dob', '$gender', '$bloodgroup', '$weight', '$address')";
+                $reg_insert_query = "INSERT INTO patient (user_name,user_email, dob, gender, blood_group, weight, address) VALUES ('$name', '$email', '$dob', '$gender', '$bloodgroup', '$weight', '$address')";
                 $reg_insert_user_query = "INSERT INTO users (user_name, email, password, user_type) VALUES ('$name', '$email', '$hashPassword', '$user')";
 
                 if($conn->query($reg_insert_query) && $conn->query($reg_insert_user_query)) {               
