@@ -1,68 +1,8 @@
 <?php
 //database connection
 require 'db_connect.php';
-
-//session created
-session_start();
-
-if(!isset($_SESSION['username'])){
-    header("Location: Login.php");
-    exit();
-}
-else{
-    $username = $_SESSION['username'];
-    $stmt = $conn->prepare("SELECT * FROM patient WHERE user_name = ?");
-    $stmt->bind_param("s", $username);
-    $stmt->execute();
-    $user_result = $stmt -> get_result();
-
-    if($user_result ->num_rows ===1){
-        $user = $user_result -> fetch_assoc();
-        $patient_name = $user['user_name'];
-        $patient_id = $user['user_id'];
-        $patient_email = $user['user_email'];
-        $patient_dob = $user['dob'];
-        $patient_gender = $user['gender'];
-        $patient_address = $user['address'];
-        $patient_bloodgroup = $user['blood_group'];
-        $patient_weight = $user['weight'];
-    }
-    $stmt->close();
-}
-
-//edit profile info update in database
-if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['update_profile'])){
-    //get the edited data from the form
-    $new_email = $_POST['email'];
-    $new_bloodgroup = $_POST['bloodgroup'];
-    $new_gender = $_POST['gender'];
-    $new_dob = $_POST['dob'];
-    $new_address = $_POST['address'];
-
-    //then run query to update the data in database
-    $update_stmt = $conn->prepare("UPDATE patient SET user_email = ?, blood_group = ?, gender = ?, dob = ?, address = ? WHERE user_name = ?");
-    $update_stmt->bind_param("ssssss", $new_email, $new_bloodgroup, $new_gender, $new_dob, $new_address, $username);
-
-    $update_user_stmt = $conn -> prepare("UPDATE users SET email = ? WHERE user_name = ?");
-    $update_user_stmt -> bind_param("ss", $new_email, $username);
-
-    if($update_stmt->execute() && $update_user_stmt -> execute()){
-        $success_msg = "Profile updated successfully!";
-
-        //change the variable data to updated data to show in the profile page
-        $patient_email = $new_email;
-        $patient_bloodgroup = $new_bloodgroup;
-        $patient_gender = $new_gender;
-        $patient_dob = $new_dob;
-        $patient_address = $new_address;
-    }
-    else{
-        $error_msg = "Error updating profile. Please try again.";
-    }
-
-    $update_stmt->close();
-    $update_user_stmt -> close();
-}
+require 'profileGetdata.php';
+require 'update_db_EditedData.php';
 ?>
 <!DOCTYPE html>
 <html>
@@ -113,64 +53,71 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['update_profile'])){
             <p>Patient ID: <?php echo htmlspecialchars($patient_id); ?></p>
             
         </div>
+
+
         <!-- Main Profile Info -->
-        <form class="profile-info" action="" method="POST">
-            <div class="info-form">
-                <label for="name"> Full Name</label>
-                <div class="info-box">
-                    <span><?php echo htmlspecialchars($patient_name); ?></span>
+        <form action="" method="POST">
+            <div class="profile-info">
+
+            
+                <div class="info-form">
+                    <label for="name"> Full Name</label>
+                    <div class="info-box">
+                        <span><?php echo htmlspecialchars($patient_name); ?></span>
+                    </div>
                 </div>
+
+                <div class="info-form">
+                    <label for="email"> Email</label>
+                    <div class="info-box view-mode">
+                        <span><?php echo htmlspecialchars($patient_email); ?></span>
+                    </div>
+                    <div class="info-box edit-mode" style="display:none;">
+                        <input type="email" name="email" value="<?php echo htmlspecialchars($patient_email); ?>">
+                    </div>
+                </div>
+
+                <div class="info-form">
+                    <label for="number"> Blood Group</label>
+                    <div class="info-box view-mode">
+                        <span><?php echo htmlspecialchars($patient_bloodgroup); ?></span>
+                    </div>
+                    <div class="info-box edit-mode" style="display:none;">
+                        <input type="text" name="bloodgroup" value="<?php echo htmlspecialchars($patient_bloodgroup); ?>">
+                    </div>
+                </div>
+
+                <div class="info-form">
+                    <label for="gender"> Gender</label>
+                    <div class="info-box view-mode">
+                        <span><?php echo htmlspecialchars($patient_gender); ?></span>
+                    </div>
+                    <div class="info-box edit-mode" style="display:none;">
+                        <input type="text" name="gender" value="<?php echo htmlspecialchars($patient_gender); ?>">
+                    </div>
+                </div>
+
+                <div class="info-form">
+                    <label for="dob"> Date of Birth</label>
+                    <div class="info-box view-mode">
+                        <span><?php echo htmlspecialchars($patient_dob); ?></span>
+                    </div>
+                    <div class="info-box edit-mode" style="display:none;">
+                        <input type="date" name="dob" value="<?php echo htmlspecialchars($patient_dob); ?>">
+                    </div>
+                </div>
+
+                <div class="info-form">
+                    <label for="address"> Address</label>
+                    <div class="info-box view-mode">
+                        <span><?php echo htmlspecialchars($patient_address); ?></span>
+                    </div>
+                    <div class="info-box edit-mode" style="display:none;">
+                        <input type="text" name="address" value="<?php echo htmlspecialchars($patient_address); ?>">
+                    </div>
+                </div> 
             </div>
 
-            <div class="info-form">
-                <label for="email"> Email</label>
-                <div class="info-box view-mode">
-                    <span><?php echo htmlspecialchars($patient_email); ?></span>
-                </div>
-                <div class="info-box edit-mode" style="display:none;">
-                    <input type="email" name="email" value="<?php echo htmlspecialchars($patient_email); ?>">
-                </div>
-            </div>
-
-            <div class="info-form">
-                <label for="number"> Blood Group</label>
-                <div class="info-box view-mode">
-                    <span><?php echo htmlspecialchars($patient_bloodgroup); ?></span>
-                </div>
-                <div class="info-box edit-mode" style="display:none;">
-                    <input type="text" name="bloodgroup" value="<?php echo htmlspecialchars($patient_bloodgroup); ?>">
-                </div>
-            </div>
-
-            <div class="info-form">
-                <label for="gender"> Gender</label>
-                <div class="info-box view-mode">
-                    <span><?php echo htmlspecialchars($patient_gender); ?></span>
-                </div>
-                <div class="info-box edit-mode" style="display:none;">
-                    <input type="text" name="gender" value="<?php echo htmlspecialchars($patient_gender); ?>">
-                </div>
-            </div>
-
-            <div class="info-form">
-                <label for="dob"> Date of Birth</label>
-                <div class="info-box view-mode">
-                    <span><?php echo htmlspecialchars($patient_dob); ?></span>
-                </div>
-                <div class="info-box edit-mode" style="display:none;">
-                    <input type="date" name="dob" value="<?php echo htmlspecialchars($patient_dob); ?>">
-                </div>
-            </div>
-
-            <div class="info-form">
-                <label for="address"> Address</label>
-                <div class="info-box view-mode">
-                    <span><?php echo htmlspecialchars($patient_address); ?></span>
-                </div>
-                <div class="info-box edit-mode" style="display:none;">
-                    <input type="text" name="address" value="<?php echo htmlspecialchars($patient_address); ?>">
-                </div>
-            </div> 
             <div class="btn-container">
                 <div class="btn-section">
                     <button class="edit-profile" id="editBtn" type="button">Edit Profile</button>
@@ -181,7 +128,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['update_profile'])){
                 <div class="btn-section">
                     <button class="logout" href="Logout.php"><a href="Logout.php">Logout</a></button>
                 </div>
-            </div>          
+            </div> 
+
         </form>
          <!-- Success/Error Messages -->
         <?php if(isset($success_msg)): ?>
