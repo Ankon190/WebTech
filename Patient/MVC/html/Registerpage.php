@@ -1,7 +1,7 @@
 <?php
 //database connection
-require 'db_connect.php';
-require 'reg_validation.php';
+require '../db/db_connect.php';
+require '../php/reg_validation.php';
     
 ?>
 
@@ -9,7 +9,7 @@ require 'reg_validation.php';
 <html>
 <head>
     <title>Register</title>
-    <link rel="stylesheet" href="RegisterPageStyle.css">
+    <link rel="stylesheet" href="../css/RegisterPageStyle.css">
     <style>
         
     </style>

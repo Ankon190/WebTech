@@ -1,7 +1,7 @@
 <?php
 //database connection
-require 'db_connect.php';
-require 'homepageGetData.php';
+require '../db/db_connect.php';
+require '../php/homepageGetData.php';
 ?>
 
 
@@ -10,7 +10,7 @@ require 'homepageGetData.php';
 <html>
 <head>
     <title>Home</title>
-    <link rel="stylesheet" href="HomeStyle.css">
+    <link rel="stylesheet" href="../css/HomeStyle.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         
@@ -24,7 +24,7 @@ require 'homepageGetData.php';
         <li><a href="MedicalHistory.php">Medical History</a></li>
         <li><a href="Profile.php"><?php echo htmlspecialchars($patient_name); ?></a></li>
      <!--   <li><a href="SelectLoginType.php">Login</a></li> -->
-        <li><a href="Logout.php">Logout</a></li>
+        <li><a href="../php/Logout.php">Logout</a></li>
     </ul>
 
     <div class="hamburger-menu" id="hamburgerMenu" onclick="toggleDropdown()">
@@ -37,7 +37,7 @@ require 'homepageGetData.php';
             <a href="Profile.php">Profile</a>
             <a href="BookAppointment.php">Book Appointment</a>
             <a href="MedicalHistory.php">Medical History</a>
-            <a href="Logout.php">Logout</a>
+            <a href="../php/Logout.php">Logout</a>
         
     </div>
     </nav>
@@ -74,6 +74,6 @@ require 'homepageGetData.php';
 
 
     <!-- javascript validation starts here -->
-    <script src="hamburgerMenu.js"> </script>
+    <script src="../js/hamburgerMenu.js"> </script>
 </body>
 </html>

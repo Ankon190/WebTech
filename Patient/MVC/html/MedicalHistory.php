@@ -1,14 +1,14 @@
 <?php
 //database connection
-require 'db_connect.php';
-require 'medicalHistoryGetData.php';
+require '../db/db_connect.php';
+require '../php/medicalHistoryGetData.php';
 
 ?>
 <!DOCTYPE html>
 <html>
 <head>
     <title>Home</title>
-    <link rel="stylesheet" href="MedicalHistoryStyle.css">
+    <link rel="stylesheet" href="../css/MedicalHistoryStyle.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         
@@ -21,7 +21,7 @@ require 'medicalHistoryGetData.php';
         <li><a href="BookAppointment.php">Book Appointment</a></li>
         <li><a class="active" href="MedicalHistory.php">Medical History</a></li>
         <li><a href="Profile.php"><?php echo htmlspecialchars($patient_name); ?></a></li>
-        <li><a href="Logout.php">Logout</a></li>
+        <li><a href="../php/Logout.php">Logout</a></li>
     </ul>
 
     <div class="hamburger-menu" id="hamburgerMenu" onclick="toggleDropdown()">
@@ -75,7 +75,7 @@ require 'medicalHistoryGetData.php';
     </div>
 
 <!-- hamburger menu js code -->
-    <script src="hamburgerMenu.js"> </script>
+    <script src="../js/hamburgerMenu.js"> </script>
 
 </body>
 </html>

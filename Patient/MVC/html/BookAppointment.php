@@ -1,6 +1,6 @@
 <?php
 //database connection
-require 'db_connect.php';
+require '../db/db_connect.php';
 //session created
 session_start();
 
@@ -17,7 +17,7 @@ if(!isset($_SESSION['username'])){
 <html>
 <head>
     <title>Home</title>
-    <link rel="stylesheet" href="BookAppointmentStyle.css">
+    <link rel="stylesheet" href="../css/BookAppointmentStyle.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         
@@ -30,7 +30,7 @@ if(!isset($_SESSION['username'])){
         <li><a class="active" href="BookAppointment.php">Book Appointment</a></li>
         <li><a href="MedicalHistory.php">Medical History</a></li>
         <li><a href="Profile.php"><?php echo htmlspecialchars($patient_name); ?></a></li>
-        <li><a href="Logout.php">Logout</a></li>
+        <li><a href="../php/Logout.php">Logout</a></li>
     </ul>
 
     <div class="hamburger-menu" id="hamburgerMenu" onclick="toggleDropdown()">
@@ -43,7 +43,7 @@ if(!isset($_SESSION['username'])){
             <a href="Profile.php">Profile</a>
             <a class="active" href="BookAppointment.php">Book Appointment</a>
             <a href="MedicalHistory.php">Medical History</a>
-            <a href="#">Logout</a>
+            <a href="../php/Logout.php">Logout</a>
         
     </div>
     </nav>
@@ -76,7 +76,7 @@ if(!isset($_SESSION['username'])){
         <!--doctor CARD 1-->
         <div class="doctor-card">
             <div class="doctor-img">
-                <img src="portrait-professional-medical-worker-posing-picture-with-arms-folded.jpg" alt="Dr. A">
+                <img src="../images/portrait-professional-medical-worker-posing-picture-with-arms-folded.jpg" alt="Dr. A">
             </div>
             <div class="doctor-info">
                 <h3 class="doctor-name">Dr. A</h3>
@@ -88,7 +88,7 @@ if(!isset($_SESSION['username'])){
         <!--doctor CARD 2-->
         <div class="doctor-card">
             <div class="doctor-img">
-                <img src="portrait-professional-medical-worker-posing-picture-with-arms-folded.jpg" alt="Dr. A">
+                <img src="../images/portrait-professional-medical-worker-posing-picture-with-arms-folded.jpg" alt="Dr. A">
             </div>
             <div class="doctor-info">
                 <h3 class="doctor-name">Dr. B</h3>
@@ -101,7 +101,7 @@ if(!isset($_SESSION['username'])){
         <!--doctor CARD 3-->
         <div class="doctor-card">
             <div class="doctor-img">
-                <img src="portrait-professional-medical-worker-posing-picture-with-arms-folded.jpg" alt="Dr. A">
+                <img src="../images/portrait-professional-medical-worker-posing-picture-with-arms-folded.jpg" alt="Dr. A">
             </div>
             <div class="doctor-info">
                 <h3 class="doctor-name">Dr. C</h3>
@@ -114,7 +114,7 @@ if(!isset($_SESSION['username'])){
         <!--doctor CARD 4-->
         <div class="doctor-card">
             <div class="doctor-img">
-                <img src="portrait-professional-medical-worker-posing-picture-with-arms-folded.jpg" alt="Dr. A">
+                <img src="../images/portrait-professional-medical-worker-posing-picture-with-arms-folded.jpg" alt="Dr. A">
             </div>
             <div class="doctor-info">
                 <h3 class="doctor-name">Dr. D</h3>
@@ -127,7 +127,7 @@ if(!isset($_SESSION['username'])){
         <!--doctor CARD 5-->
         <div class="doctor-card">
             <div class="doctor-img">
-                <img src="portrait-professional-medical-worker-posing-picture-with-arms-folded.jpg" alt="Dr. A">
+                <img src="../images/portrait-professional-medical-worker-posing-picture-with-arms-folded.jpg" alt="Dr. A">
             </div>
             <div class="doctor-info">
                 <h3 class="doctor-name">Dr. E</h3>
@@ -139,7 +139,7 @@ if(!isset($_SESSION['username'])){
         <!--doctor CARD 6-->
         <div class="doctor-card">
             <div class="doctor-img">
-                <img src="portrait-professional-medical-worker-posing-picture-with-arms-folded.jpg" alt="Dr. A">
+                <img src="../images/portrait-professional-medical-worker-posing-picture-with-arms-folded.jpg" alt="Dr. A">
             </div>
             <div class="doctor-info">
                 <h3 class="doctor-name">Dr. F</h3>
@@ -152,7 +152,7 @@ if(!isset($_SESSION['username'])){
         <!--doctor CARD 7-->
         <div class="doctor-card">
             <div class="doctor-img">
-                <img src="portrait-professional-medical-worker-posing-picture-with-arms-folded.jpg" alt="Dr. A">
+                <img src="../images/portrait-professional-medical-worker-posing-picture-with-arms-folded.jpg" alt="Dr. A">
             </div>
             <div class="doctor-info">
                 <h3 class="doctor-name">Dr. G</h3>
@@ -165,7 +165,7 @@ if(!isset($_SESSION['username'])){
         <!--doctor CARD 8-->
         <div class="doctor-card">
             <div class="doctor-img">
-                <img src="portrait-professional-medical-worker-posing-picture-with-arms-folded.jpg" alt="Dr. A">
+                <img src="../images/portrait-professional-medical-worker-posing-picture-with-arms-folded.jpg" alt="Dr. A">
             </div>
             <div class="doctor-info">
                 <h3 class="doctor-name">Dr. H</h3>
@@ -178,7 +178,7 @@ if(!isset($_SESSION['username'])){
     </div>
 
 <!-- hamburger menu js code -->
-    <script src="hamburgerMenu.js"> </script>
+    <script src="../js/hamburgerMenu.js"> </script>
 
 
 </body>

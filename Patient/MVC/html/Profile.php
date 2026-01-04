@@ -1,14 +1,14 @@
 <?php
 //database connection
-require 'db_connect.php';
-require 'profileGetdata.php';
-require 'update_db_EditedData.php';
+require '../db/db_connect.php';
+require '../php/profileGetdata.php';
+require '../php/update_db_EditedData.php';
 ?>
 <!DOCTYPE html>
 <html>
 <head>
     <title>Home</title>
-    <link rel="stylesheet" href="ProfileStyle.css">
+    <link rel="stylesheet" href="../css/ProfileStyle.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         
@@ -21,7 +21,7 @@ require 'update_db_EditedData.php';
         <li><a href="BookAppointment.php">Book Appointment</a></li>
         <li><a href="MedicalHistory.php">Medical History</a></li>
         <li><a class="active" href="Profile.php"><?php echo htmlspecialchars($patient_name); ?></a></li>
-        <li><a href="Logout.php">Logout</a></li>
+        <li><a href="../php/Logout.php">Logout</a></li>
     </ul>
 
     <div class="hamburger-menu" id="hamburgerMenu" onclick="toggleDropdown()">
@@ -34,7 +34,7 @@ require 'update_db_EditedData.php';
             <a class="active" href="Profile.php">Profile</a>
             <a href="BookAppointment.php">Book Appointment</a>
             <a href="MedicalHistory.php">Medical History</a>
-            <a href="#">Logout</a>
+            <a href="../php/Logout.php">Logout</a>
         
     </div>
     </nav>
@@ -48,7 +48,7 @@ require 'update_db_EditedData.php';
    
         <div class="profile-photo-section">
             <div class="profile-photo">
-                <img src="portrait-professional-medical-worker-posing-picture-with-arms-folded.jpg" alt="Profile Photo">
+                <img src="../images/portrait-professional-medical-worker-posing-picture-with-arms-folded.jpg" alt="Profile Photo">
             </div>
             <p>Patient ID: <?php echo htmlspecialchars($patient_id); ?></p>
             
@@ -126,7 +126,7 @@ require 'update_db_EditedData.php';
                     <button class="save-profile" type="submit" name="update_profile">Save Changes</button>
                 </div>
                 <div class="btn-section">
-                    <button class="logout" href="Logout.php"><a href="Logout.php">Logout</a></button>
+                    <button class="logout" href="../php/Logout.php"><a href="../php/Logout.php">Logout</a></button>
                 </div>
             </div> 
 
@@ -146,9 +146,9 @@ require 'update_db_EditedData.php';
     </div>
 
 <!-- hamburger menu js code -->
-    <script src="hamburgerMenu.js"> </script>
+    <script src="../js/hamburgerMenu.js"> </script>
 <!-- js code for edit info -->
-    <script src="EditInfo.js"> </script>
+    <script src="../js/EditInfo.js"> </script>
 
 
 </body>
