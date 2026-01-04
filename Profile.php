@@ -179,7 +179,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['update_profile'])){
                     <button class="save-profile" type="submit" name="update_profile">Save Changes</button>
                 </div>
                 <div class="btn-section">
-                    <button class="logout"><a href="Logout.php">Logout</a></button>
+                    <button class="logout" href="Logout.php"><a href="Logout.php">Logout</a></button>
                 </div>
             </div>          
         </form>
