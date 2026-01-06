@@ -126,7 +126,7 @@ require '../php/update_db_EditedData.php';
                     <button class="save-profile" type="submit" name="update_profile">Save Changes</button>
                 </div>
                 <div class="btn-section">
-                    <button class="logout" href="../php/Logout.php"><a href="../php/Logout.php">Logout</a></button>
+                    <button class="logout"><a href="../php/Logout.php">Logout</a></button>
                 </div>
             </div> 
 
