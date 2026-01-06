@@ -65,11 +65,35 @@ require '../php/reg_validation.php';
                 }
             ?><br>
             <button type="submit" class="btn">Register</button>
+            <div id="loginButtonContainer">
+
+            </div>
         </form>
     </div>
 
     <script>
-        
+        // Add any JavaScript functionality here if needed
+        document.addEventListener("DOMContentLoaded", function() {
+            var success = document.querySelector('.success-msg');
+            var error = document.querySelector('.error-msg');
+            var loginButtonContainer = document.getElementById('loginButtonContainer');
+
+            // Create login button
+            var loginbtn = document.createElement('a');
+            loginbtn.href = "Loginpage.php";
+            loginbtn.textContent = "Login";
+            loginbtn.className = "btn";
+            loginbtn.style.display = "block";
+            loginbtn.style.textAlign = "center";
+            loginbtn.style.marginTop = "10px";
+            loginbtn.style.textDecoration = "none";
+
+            if(success){
+                loginButtonContainer.appendChild(loginbtn);
+
+            }
+        });
+
     </script>
 </body>
 </html>
