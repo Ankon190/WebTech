@@ -1,5 +1,5 @@
 <?php
-    $name = $email = $dob = $bloodgroup = $weight = $address = $password = $gender = $user = $terms = "";
+    $name = $email = $dob = $bloodgroup = $weight = $address = $password = $gender = $user = $terms = $profile_image_path = "";
     $success = $errormsg = "";
     $has_error = false;
 
@@ -15,8 +15,38 @@
         $user = $_POST['user'];
         $terms = isset($_POST['terms']);
 
+        //img file upload to db
+        if(isset($_FILES['profile_image']) && $_FILES['profile_image']['error'] == 0){
+            $image = $_FILES['profile_image'];
+            $image_name = $image['name'];
+            $image_temp = $image['tmp_name'];
+            $image_type = $image['type'];
+
+            //img file type check
+            if($image_type != "image/jpeg" && $image_type != "image/png" && $image_type != "image/jpg") {
+                $errormsg = "Only JPG, PNG and GIF files are allowed.";
+                $has_error = true;
+            }
+            else{
+                $upload_dir = '../uploads/';
+
+                // Create directory if it doesn't exist
+                if(!is_dir($upload_dir)) {
+                    mkdir($upload_dir, 0777, true);
+                }
+
+                $target_path = $upload_dir . $image_name;
+                if(move_uploaded_file($image_temp, $target_path)){
+                   $profile_image_path = '../uploads/' . $image_name;
+                } else {
+                    $errormsg = "Failed to upload image.";
+                    $has_error = true;
+                }
+            }
+        }
+
         //checks for empty fields
-        if((empty($name)) || (empty($email)) || (empty($dob)) || (empty($bloodgroup)) || (empty($weight)) || (empty($address)) || (empty($password)) || (empty($gender)) || (empty($user)) || (!isset($terms))){
+        if((empty($name)) || (empty($email)) || (empty($dob)) || (empty($bloodgroup)) || (empty($weight)) || (empty($address)) || (empty($password)) || (empty($gender)) || (empty($user)) || (!isset($terms)) || (empty($profile_image_path))){
             $errormsg = "All fields are required";
             $has_error = true;
         }
@@ -56,7 +86,7 @@
                 //check if the user is patient or doctor
                 if($user === "patient"){
                 //data insertion query in tables
-                    $reg_insert_query = "INSERT INTO patient (user_name,user_email, dob, gender, blood_group, weight, address) VALUES ('$name', '$email', '$dob', '$gender', '$bloodgroup', '$weight', '$address')";
+                    $reg_insert_query = "INSERT INTO patient (user_name,user_email, dob, gender, blood_group, weight, address,photo) VALUES ('$name', '$email', '$dob', '$gender', '$bloodgroup', '$weight', '$address', '$profile_image_path')";
                     $reg_insert_user_query = "INSERT INTO users (user_name, email, password, user_type) VALUES ('$name', '$email', '$hashPassword', '$user')";
 
                     if($conn->query($reg_insert_query) && $conn->query($reg_insert_user_query)) {               
@@ -67,7 +97,7 @@
                 }
                 elseif($user === "doctor"){
                     //data insertion query in tables
-                    $reg_insert_query = "INSERT INTO doctor (user_name, dob, gender, blood_group, weight, address) VALUES ('$name', '$dob', '$gender', '$bloodgroup', '$weight', '$address')";
+                    $reg_insert_query = "INSERT INTO doctor (user_name, dob, gender, blood_group, weight, address,photo) VALUES ('$name', '$dob', '$gender', '$bloodgroup', '$weight', '$address', '$profile_image_path')";
                     $reg_insert_user_query = "INSERT INTO users (user_name, email, password, user_type) VALUES ('$name', '$email', '$hashPassword', '$user')";
 
                     if($conn->query($reg_insert_query) && $conn->query($reg_insert_user_query)) {               

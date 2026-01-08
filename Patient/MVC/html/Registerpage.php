@@ -17,7 +17,7 @@ require '../php/reg_validation.php';
 
 <body>
     <div class="wrapper">
-        <form action="" method="post">
+        <form action="" method="post" enctype="multipart/form-data">
             <h1>Register</h1>
             <div class="input-box">
                 <input type="text" name="name" placeholder="Name" id="name">
@@ -51,7 +51,7 @@ require '../php/reg_validation.php';
                 <input type="radio" name="user" id="doctor" value="doctor"><label>Doctor</label>
             </div>
             <div class="input-box-photo">
-                <input type="file" name="" id="photo">
+                <input type="file" name="profile_image" id="photo">
             </div><br>
             <div class="terms-conditions">
                 <label><input type="checkbox" id="terms">I accept the terms and conditions</label>
