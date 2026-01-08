@@ -9,7 +9,16 @@ if(!isset($_SESSION['username'])){
     exit();
 }
 //declaring variables
-    $patient_name = "John Doe";
+    $patient_name = $_SESSION['username'];
+    //fetching doctor data from database
+    $sql = "SELECT * from doctor ORDER BY user_name ASC";
+    $result = $conn->query($sql);
+    $doctors = [];
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            $doctors[] = $row;
+        }
+    }
 
 ?>
 
@@ -73,108 +82,30 @@ if(!isset($_SESSION['username'])){
     </div>
 <!--doctor list section-->
     <div class="doctor-lists">
-        <!--doctor CARD 1-->
+        <?php if(empty($doctors)): ?>
+            <div class="no-doctors">
+                <p>No doctors available at the moment.</p>
+                <p>Please check back later.</p>
+            </div>
+        <?php else: ?>
+        <!--Available doctor CARDs -->
+        <?php foreach ($doctors as $doctor): ?>
         <div class="doctor-card">
             <div class="doctor-img">
-                <img src="../images/portrait-professional-medical-worker-posing-picture-with-arms-folded.jpg" alt="Dr. A">
+                <?php if (!empty($doctor['photo'])): ?>
+                    <img src="../<?php echo htmlspecialchars($doctor['photo']); ?>" alt="<?php echo htmlspecialchars($doctor['user_name']); ?>">
+                <?php endif; ?>
             </div>
             <div class="doctor-info">
-                <h3 class="doctor-name">Dr. A</h3>
-                <p class="doctor-specialty">Cardiologist</p>
-                <p class="doctor-availability">Available: Mon, Wed, Fri - 10:00 AM to 2:00 PM</p>
+                <h3 class="doctor-name">Dr. <?php echo htmlspecialchars($doctor['user_name']); ?></h3>
+                <p class="doctor-specialty">Specialization: <?php echo htmlspecialchars($doctor['specilization']); ?></p>
+                <p class="doctor-availability">Available: <?php echo htmlspecialchars($doctor['availability_day']); ?></p>
+                <p><?php echo htmlspecialchars($doctor['availability_time_start']); ?> to <?php echo htmlspecialchars($doctor['availability_time_end']); ?></p>
                 <button class="book-appointment-btn">Book Appointment</button>
             </div>
         </div>
-        <!--doctor CARD 2-->
-        <div class="doctor-card">
-            <div class="doctor-img">
-                <img src="../images/portrait-professional-medical-worker-posing-picture-with-arms-folded.jpg" alt="Dr. A">
-            </div>
-            <div class="doctor-info">
-                <h3 class="doctor-name">Dr. B</h3>
-                <p class="doctor-specialty">Neurologist</p>
-                <p class="doctor-availability">Available: Mon, Wed, Fri - 10:00 AM to 2:00 PM</p>
-                <button class="book-appointment-btn">Book Appointment</button>
-            </div>
-        </div>
-
-        <!--doctor CARD 3-->
-        <div class="doctor-card">
-            <div class="doctor-img">
-                <img src="../images/portrait-professional-medical-worker-posing-picture-with-arms-folded.jpg" alt="Dr. A">
-            </div>
-            <div class="doctor-info">
-                <h3 class="doctor-name">Dr. C</h3>
-                <p class="doctor-specialty">Neurologist</p>
-                <p class="doctor-availability">Available: Mon, Wed, Fri - 10:00 AM to 2:00 PM</p>
-                <button class="book-appointment-btn">Book Appointment</button>
-            </div>
-        </div>
-
-        <!--doctor CARD 4-->
-        <div class="doctor-card">
-            <div class="doctor-img">
-                <img src="../images/portrait-professional-medical-worker-posing-picture-with-arms-folded.jpg" alt="Dr. A">
-            </div>
-            <div class="doctor-info">
-                <h3 class="doctor-name">Dr. D</h3>
-                <p class="doctor-specialty">Neurologist</p>
-                <p class="doctor-availability">Available: Mon, Wed, Fri - 10:00 AM to 2:00 PM</p>
-                <button class="book-appointment-btn">Book Appointment</button>
-            </div>
-        </div>
-
-        <!--doctor CARD 5-->
-        <div class="doctor-card">
-            <div class="doctor-img">
-                <img src="../images/portrait-professional-medical-worker-posing-picture-with-arms-folded.jpg" alt="Dr. A">
-            </div>
-            <div class="doctor-info">
-                <h3 class="doctor-name">Dr. E</h3>
-                <p class="doctor-specialty">Cardiologist</p>
-                <p class="doctor-availability">Available: Mon, Wed, Fri - 10:00 AM to 2:00 PM</p>
-                <button class="book-appointment-btn">Book Appointment</button>
-            </div>
-        </div>
-        <!--doctor CARD 6-->
-        <div class="doctor-card">
-            <div class="doctor-img">
-                <img src="../images/portrait-professional-medical-worker-posing-picture-with-arms-folded.jpg" alt="Dr. A">
-            </div>
-            <div class="doctor-info">
-                <h3 class="doctor-name">Dr. F</h3>
-                <p class="doctor-specialty">Neurologist</p>
-                <p class="doctor-availability">Available: Mon, Wed, Fri - 10:00 AM to 2:00 PM</p>
-                <button class="book-appointment-btn">Book Appointment</button>
-            </div>
-        </div>
-
-        <!--doctor CARD 7-->
-        <div class="doctor-card">
-            <div class="doctor-img">
-                <img src="../images/portrait-professional-medical-worker-posing-picture-with-arms-folded.jpg" alt="Dr. A">
-            </div>
-            <div class="doctor-info">
-                <h3 class="doctor-name">Dr. G</h3>
-                <p class="doctor-specialty">Neurologist</p>
-                <p class="doctor-availability">Available: Mon, Wed, Fri - 10:00 AM to 2:00 PM</p>
-                <button class="book-appointment-btn">Book Appointment</button>
-            </div>
-        </div>
-
-        <!--doctor CARD 8-->
-        <div class="doctor-card">
-            <div class="doctor-img">
-                <img src="../images/portrait-professional-medical-worker-posing-picture-with-arms-folded.jpg" alt="Dr. A">
-            </div>
-            <div class="doctor-info">
-                <h3 class="doctor-name">Dr. H</h3>
-                <p class="doctor-specialty">Neurologist</p>
-                <p class="doctor-availability">Available: Mon, Wed, Fri - 10:00 AM to 2:00 PM</p>
-                <button class="book-appointment-btn">Book Appointment</button>
-            </div>
-        </div>
-
+        <?php endforeach; ?>
+        <?php endif; ?>
     </div>
 
 <!-- hamburger menu js code -->
