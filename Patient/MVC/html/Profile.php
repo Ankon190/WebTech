@@ -48,7 +48,7 @@ require '../php/update_db_EditedData.php';
    
         <div class="profile-photo-section">
             <div class="profile-photo">
-                <img src="../images/portrait-professional-medical-worker-posing-picture-with-arms-folded.jpg" alt="Profile Photo">
+                <img src="<?php echo htmlspecialchars($patient_img); ?>" alt="Profile Photo">
             </div>
             <p>Patient ID: <?php echo htmlspecialchars($patient_id); ?></p>
             

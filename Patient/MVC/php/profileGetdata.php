@@ -24,6 +24,7 @@ else{
         $patient_address = $user['address'];
         $patient_bloodgroup = $user['blood_group'];
         $patient_weight = $user['weight'];
+        $patient_img = $user['photo'];
     }
     $stmt->close();
 }
