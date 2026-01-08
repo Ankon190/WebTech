@@ -10,13 +10,43 @@ if(!isset($_SESSION['username'])){
 }
 //declaring variables
     $patient_name = $_SESSION['username'];
-    //fetching doctor data from database
-    $sql = "SELECT * from doctor ORDER BY user_name ASC";
-    $result = $conn->query($sql);
     $doctors = [];
-    if ($result->num_rows > 0) {
-        while ($row = $result->fetch_assoc()) {
-            $doctors[] = $row;
+    $search_name = '';
+    $search_specialty = '';
+    // Check if search form was submitted
+    if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['search'])) {
+        $search_name = $_POST['search_name'];
+        $search_specialty = $_POST['search_specialty'];
+        
+        // Build SQL query based on search criteria
+        $sql = "SELECT * FROM doctor WHERE 1=1";
+        
+        if(!empty($search_name)) {
+            $sql .= " AND user_name LIKE '%$search_name%'";
+        }
+        
+        if(!empty($search_specialty)) {
+            $sql .= " AND specilization = '$search_specialty'";
+        }
+        //sql command is ready, Now execute it
+        $sql .= " ORDER BY user_name ASC";
+        $result = $conn->query($sql);
+    
+        if ($result && $result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                $doctors[] = $row;
+            }
+        }
+    } 
+    else {
+        // If not searching, get all doctors
+        $sql = "SELECT * FROM doctor ORDER BY user_name ASC";
+        $result = $conn->query($sql);
+        
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                $doctors[] = $row;
+            }
         }
     }
 
@@ -62,24 +92,28 @@ if(!isset($_SESSION['username'])){
         </h2>
     </div>
     <!--search section-->
-    <div class="search-section">
-        <div class="search-input">
-            <i class="fas fa-search"></i>
-            <input class="search-box" type="text" placeholder="Search by doctor name">
+    <form method="post" action="">
+        <div class="search-section">
+            <div class="search-input">
+                <i class="fas fa-search"></i>
+                <input class="search-box" name="search_name" type="text" placeholder="Search by doctor name" >
+            </div>
+            <div class="search-input">
+                <i class="fas fa-user-md"></i>
+                <select name="search_specialty" class="specialist-dropdown">
+                    <option value="" selected>Select Specialist</option>
+                    <option value="Cardiologist">Cardiologist</option>
+                    <option value="Dermatologist">Dermatologist</option>
+                    <option value="Neurologist">Neurologist</option>
+                    <option value="Pediatrician">Pediatrician</option>
+                    <option value="Psychiatrist">Psychiatrist</option>
+                    <option value="Surgeon">Surgeon</option>
+                    <option value="Medicine">Medicine</option>
+                </select>
+            </div>
+            <button type="submit" name="search" class="search-btn">Search</button>
         </div>
-        <div class="search-input">
-            <i class="fas fa-user-md"></i>
-            <select class="specialist-dropdown">
-                <option value="" selected>Select Specialist</option>
-                <option value="cardiologist">Cardiologist</option>
-                <option value="dermatologist">Dermatologist</option>
-                <option value="neurologist">Neurologist</option>
-                <option value="pediatrician">Pediatrician</option>
-                <option value="psychiatrist">Psychiatrist</option>
-            </select>
-        </div>
-        <button type="submit" class="search-btn">Search</button>
-    </div>
+    </form>
 <!--doctor list section-->
     <div class="doctor-lists">
         <?php if(empty($doctors)): ?>
