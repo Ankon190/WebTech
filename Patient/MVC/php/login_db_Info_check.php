@@ -17,7 +17,7 @@ else{
         $stmt->execute();
         $user_result = $stmt -> get_result();
 
-        if($user_result -> num_rows ===1){
+        if($user_result -> num_rows ===1) {
             $user = $user_result -> fetch_assoc();
             if(password_verify($password, $user['password'])) {
                 // Password is correct, start a session
@@ -35,3 +35,4 @@ else{
 
 }
 ?>
+
