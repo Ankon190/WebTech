@@ -280,7 +280,7 @@ body{
 }
 
 .submit-btn {
-    background-color: #4CAF50;
+    background-color: #466A9F;
     color: white;
     padding: 12px 20px;
     border: none;
@@ -291,5 +291,5 @@ body{
 }
         
 .submit-btn:hover {
-    background-color: #45a049;
+    background-color: #2b374b;
 }
