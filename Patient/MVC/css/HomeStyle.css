@@ -101,13 +101,22 @@ body{
     color: black;
     opacity: 0.8;
 }
+.appoinments{
+    display:flex;
+    flex-direction: column;
+    gap: 20px;
+    
+}
 
 .appointment-alert{
+    width: 80%;
     background-color: #ffffff;
     padding:20px;
     border-radius: 8px;
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    margin: auto;
     
 }
 .appointment-icon{
@@ -116,7 +125,7 @@ body{
     font-size: 30px;
     color: #466A9F;
 }
-.appointment-alert a{
+.btn{
     height: 40px;
     width: 120px;
     text-decoration: none;

@@ -99,8 +99,7 @@ require '../php/bookingConfirmation.php';
                 <p><?php echo htmlspecialchars($doctor['availability_time_start']); ?> to <?php echo htmlspecialchars($doctor['availability_time_end']); ?></p>
                 <button class="book-appointment-btn" onclick="OpenModal('<?php echo $doctor['user_name']; ?>', 
                                                      '<?php echo $doctor['specilization']; ?>',
-                                                     '<?php echo $doctor['user_id'] ?? ''; ?>')">Book Appointment
-                </button>
+                                                     '<?php echo $doctor['user_id'] ?? ''; ?>')">Book Appointment</button>
             </div>
         </div>
         <?php endforeach; ?>

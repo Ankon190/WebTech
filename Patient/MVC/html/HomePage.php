@@ -2,6 +2,8 @@
 //database connection
 require '../db/db_connect.php';
 require '../php/homepageGetData.php';
+
+
 ?>
 
 
@@ -50,25 +52,32 @@ require '../php/homepageGetData.php';
         </div>
 
         <!-- Appointment Alert -->
-        <div class="appointment-alert">
-            <?php if($appointed_doctor && $appointment_date): ?>
-                <div class="appointment-icon">
-                    <i class="fas fa-calendar-check"></i>
-                </div>
-                <div class="appointment-details">
-                    <h2>Upcoming Appointment</h2>
-                    <p><?php echo $appointed_doctor; ?> - <?php echo $specialization; ?></p>
-                    <p class="appointment-date"> Date: <?php echo $appointment_date; ?> </p>
-                </div>
-                <a href="BookAppointment.php" class="btn">View Details</a>
-            <?php else: ?>
-                <div class="no-appointment">
-                    <h2>No Upcoming Appointments</h2>
-                    <p>You have no appointments scheduled. Book one now!</p>
-                    <a href="BookAppointment.php" class="btn">Book Appointment</a>
-                </div>
-            <?php endif; ?>
-        </div>
+         <div class="appoinments">
+            <?php if(!empty($upcoming_appointments)): ?>
+            <?php foreach($upcoming_appointments as $appointment): ?>
+            <!--Appoinment card start -->
+            <div class="appointment-alert">
+                    <div class="appointment-icon">
+                        <i class="fas fa-calendar-check"></i>
+                    </div>
+                    <div class="appointment-details">
+                        <h2>Upcoming Appointment</h2>
+                        <p><?php echo $appointment['doctor_name']; ?> - <?php echo $appointment['doctor_specialty']; ?></p>
+                        <p class="appointment-date"> Date: <?php echo $appointment['appointment_date']; ?> </p>
+                    </div>
+                    <a href="BookAppointment.php" class="btn">View Details</a>
+            </div>
+                <?php endforeach; ?>
+                <?php else: ?>
+                    <div class="no-appointment">
+                        <h2>No Upcoming Appointments</h2>
+                        <p>You have no appointments scheduled. Book one now!</p>
+                        <a href="BookAppointment.php" class="btn">Book Appointment</a>
+                    </div>
+                <?php endif; ?>
+            
+         </div>
+        
     </div>
 
 

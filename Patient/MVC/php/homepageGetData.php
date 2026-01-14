@@ -7,20 +7,36 @@ if(!isset($_SESSION['username'])){
 }
 
 else{
-    $username = $_SESSION['username'];
-    $stmt = $conn->prepare("SELECT user_name FROM users WHERE user_name = ?");
-    $stmt->bind_param("s", $username);
-    $stmt->execute();
-    $user_result = $stmt -> get_result();
+    $patient_name = $_SESSION['username'];
+    //get todays date using predefined function
+    $current_date = date('Y-m-d');    
 
-    if($user_result ->num_rows ===1){
-        $user = $user_result -> fetch_assoc();
+
+//get user id
+    $username= $_SESSION['username'];
+    $sql= "SELECT user_id FROM patient WHERE user_name= '$username'";
+    $id_result = $conn -> query($sql);
+    $patient_id="";
+
+    if($id_result -> num_rows > 0){
+        $patient_row = $id_result -> fetch_assoc();
+        $patient_id = $patient_row['user_id'];
     }
-    $stmt->close();
-//declaring variables
-    $patient_name = $user['user_name'];
-    $appointed_doctor = "Dr. Smith";
-    $specialization = "Cardiologist";
-    $appointment_date = "2025-12-31";
+
+    // In homepageGetData.php
+    $sql = "SELECT *
+            FROM appointments 
+            WHERE patient_id = '$patient_id' 
+            AND appointment_date >= '$current_date'
+            ORDER BY appointment_date ASC, appointment_time ASC";
+            
+    $result = $conn->query($sql);
+
+    $upcoming_appointments = [];
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            $upcoming_appointments[] = $row;
+        }
+    }
 }
 ?>
