@@ -119,6 +119,7 @@ body{
     margin: auto;
     
 }
+
 .appointment-icon{
     height:60px;
     width:60px;
@@ -154,4 +155,38 @@ body{
     color:#1f4d91;
     border-radius: 5px;
     margin-top:5px;
+}
+
+
+.no-appointment {
+    width: 100%;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    display: flex;
+    text-align: center;
+    justify-content: space-between;
+}
+
+.no-appointment h2 {
+    color: #464646;
+    margin-bottom: 10px;
+}
+
+.no-appointment p {
+    color: #585858;
+    margin-bottom: 20px;
+}
+
+.no-appointment .btn {
+    height: 40px;
+    width: 150px;
+    text-decoration: none;
+    text-align: center;
+    padding: 11px 0;
+    background-color:white ;
+    color: #466A9F;
+    border: 1px solid #466A9F;
+    border-radius: 8px;
+    font-size: 16px;
 }
