@@ -50,7 +50,14 @@ require '../php/homepageGetData.php';
             <h1>Welcome, <?php echo $patient_name; ?>!</h1>
             <p>Here is your health overview for today</p>
         </div>
-
+        <div class="cencel-apnt-success-error-msg">
+            <?php if(isset($success)): ?>
+                <h3><?php echo $success ?></h3>
+            <?php endif; ?>
+            <?php if(isset($error)): ?>
+                <h3><?php echo $error ?></h3>
+            <?php endif; ?>
+        </div>
         <!-- Appointment Alert -->
          <div class="appoinments">
             <?php if(!empty($upcoming_appointments)): ?>
@@ -62,12 +69,15 @@ require '../php/homepageGetData.php';
                     </div>
                     <div class="appointment-details">
                         <h2>Upcoming Appointment</h2>
+                    
                         <p>Appoinment ID: <?php echo $appointment['appointment_id']; ?> </p>
                         <p><?php echo $appointment['doctor_name']; ?> - <?php echo $appointment['doctor_specialty']; ?></p>
                         <p class="appointment-date"> Date: <?php echo $appointment['appointment_date']; ?> </p>
                     </div>
                     <button class="btn view-details" onclick="loadApntDetails(<?php echo $appointment['appointment_id'] ?>)">View Details</button>
-                    <button class= "btn apnt-cencel-btn">Cencel Appointment </button>
+                    <form method="POST">
+                    <button type="button" class= "btn apnt-cencel-btn" name="cencel-appointmet" value="<?php echo $appointment['appointment_id']; ?>" onclick="confirmCencellation(this)">Cencel Appointment </button>
+                    </form>
             </div>
                 <?php endforeach; ?>
                 <?php else: ?>
@@ -121,6 +131,15 @@ require '../php/homepageGetData.php';
 
     function closeModal() {
     document.getElementById('appointmentModal').style.display = 'none';
+    }
+
+    function confirmCencellation(button){
+        var confirmation = confirm("Are you sure you want to cencel this appoinment?");
+
+        if(confirmation){
+            button.type = 'submit';
+            button.closest('form').submit();
+        }
     }
     </script>
 </body>

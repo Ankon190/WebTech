@@ -230,3 +230,9 @@ body{
     text-align: center;
     color:rgb(39, 65, 104);
 }
+
+.cencel-apnt-success-error-msg{
+    width: 80%;
+    text-align: center;
+    margin: 10px auto;
+}

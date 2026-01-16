@@ -7,6 +7,24 @@ if(!isset($_SESSION['username'])){
 }
 
 else{
+    
+    //apppointment cencel query
+    $success = $error = "";
+    if(isset($_POST['cencel-appointmet'])){
+        $cencel_appointment_id = $_POST['cencel-appointmet'];
+
+        $delete_sql = "DELETE from appointments where appointment_id ='$cencel_appointment_id'";
+
+        if($conn -> query($delete_sql) === true){
+            $success = "Appointment cencelled successfully";
+        }
+        else{
+            $error = "Error cancelling appointment: " . $conn->error;
+        }
+    }
+
+
+
     $patient_name = $_SESSION['username'];
     //get todays date using predefined function
     $current_date = date('Y-m-d');    
