@@ -62,10 +62,12 @@ require '../php/homepageGetData.php';
                     </div>
                     <div class="appointment-details">
                         <h2>Upcoming Appointment</h2>
+                        <p>Appoinment ID: <?php echo $appointment['appointment_id']; ?> </p>
                         <p><?php echo $appointment['doctor_name']; ?> - <?php echo $appointment['doctor_specialty']; ?></p>
                         <p class="appointment-date"> Date: <?php echo $appointment['appointment_date']; ?> </p>
                     </div>
-                    <a href="BookAppointment.php" class="btn">View Details</a>
+                    <button class="btn view-details" onclick="loadApntDetails(<?php echo $appointment['appointment_id'] ?>)">View Details</button>
+                    <button class= "btn apnt-cencel-btn">Cencel Appointment </button>
             </div>
                 <?php endforeach; ?>
                 <?php else: ?>
@@ -81,8 +83,45 @@ require '../php/homepageGetData.php';
     </div>
 
 
+    <div id="appointmentModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            <div class="modal-header">
+                <h2>Appointment Details</h2>
+            </div>
+            <div id="modalDetails">
+                <!-- Appointment details will be loaded here via AJAX -->
+                
+            </div>
+        </div>
+    </div>
+
 
     <!-- javascript validation starts here -->
     <script src="../js/hamburgerMenu.js"> </script>
+    <script>
+        function loadApntDetails(appointmentId){
+            document.getElementById('appointmentModal').style.display = 'block';
+
+            var apntDetails = new XMLHttpRequest();
+            apntDetails.open('GET', '../php/getAppointmentDetails.php?appointment_id=' + appointmentId, true);
+            
+            apntDetails.onload = function() {
+            if (apntDetails.status === 200) {
+                // Success - display the HTML response
+                document.getElementById('modalDetails').innerHTML = apntDetails.responseText;
+            } else {
+                // Error
+                document.getElementById('modalDetails').innerHTML = '<div class="error">Error loading details. Please try again.</div>';
+            }
+        };
+
+        apntDetails.send();
+    }
+
+    function closeModal() {
+    document.getElementById('appointmentModal').style.display = 'none';
+    }
+    </script>
 </body>
 </html>

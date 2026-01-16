@@ -111,6 +111,9 @@ require '../php/bookingConfirmation.php';
         <div class="modal-content">
             <span class="close" onclick="closeBookingModal()">&times;</span>
             <h2>Book Appointment</h2>
+    <!--show error if any error occurs-->
+
+    <!--book appoinment modal-->
             <form method="post" action="">
                 <input type="text" name="doctor_name" id="modalDoctorName" readonly>
                 <input type="text" name="doctor_id" id="modalDoctorId" readonly>
@@ -128,8 +131,7 @@ require '../php/bookingConfirmation.php';
                 
                 <div class="form-group">
                     <label for="appointment_date">Appointment Date </label>
-                    <input type="date" id="appointment_date" name="appointment_date" required 
-                           min="<?php echo date('Y-m-d'); ?>">
+                    <input type="date" id="appointment_date" name="appointment_date" min="<?php echo date('Y-m-d'); ?>">
                 </div>
                 
                 <div class="form-group">

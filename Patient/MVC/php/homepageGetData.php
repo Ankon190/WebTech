@@ -38,5 +38,17 @@ else{
             $upcoming_appointments[] = $row;
         }
     }
+
+    //getting data if view details is clicked
+    if(isset($_GET['appointment_id'])){
+        $appoint_id = $_Get['appointment_id'];
+        $sql = "SELECT * FROM appointments WHERE appointment_id = '$appoint_id'";
+                
+        $result = $conn->query($sql);
+        if($result -> num_rows > 0){
+            $appointment_details = $result ->fetch_assoc();
+        }
+
+    }
 }
 ?>
