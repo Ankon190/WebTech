@@ -7,5 +7,14 @@ if(!isset($_SESSION['username'])){
     exit();
 }
 //declaring variables
-    $patient_name = "John Doe";
+else{
+    $sql = "SELECT * FROM medicalhistory ORDER BY appointment_date ASC";
+    $result = $conn->query($sql);
+    $medical_historys = [];
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                $medical_historys[] = $row;
+            }
+        }
+}
 ?>

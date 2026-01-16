@@ -20,7 +20,7 @@ require '../db/db_connect.php';
         }
 
         else {
-    echo "<p>No appointment found</p>";
+            echo "<p>No appointment found</p>";
     }
 }
 

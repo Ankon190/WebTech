@@ -20,7 +20,7 @@ require '../php/medicalHistoryGetData.php';
         <li><a href="HomePage.php">Home</a></li>
         <li><a href="BookAppointment.php">Book Appointment</a></li>
         <li><a class="active" href="MedicalHistory.php">Medical History</a></li>
-        <li><a href="Profile.php"><?php echo htmlspecialchars($patient_name); ?></a></li>
+        <li><a href="Profile.php"><?php echo $_SESSION['username'] ?></a></li>
         <li><a href="../php/Logout.php">Logout</a></li>
     </ul>
 
@@ -46,6 +46,13 @@ require '../php/medicalHistoryGetData.php';
     </div>
     <!--medical history details-->
     <div class="history-details">
+        <?php if(empty($medical_historys)): ?>
+            <div class="no-history">
+                <h1>No medical history found at this moment.</h1>
+            </div>
+        <!--Available medical history details -->
+        <?php else: ?>
+        
         <table>
             <tr>
                 <th>Date</th>
@@ -53,25 +60,17 @@ require '../php/medicalHistoryGetData.php';
                 <th>Diagnosis</th>
                 <th>Prescriptions</th>
             </tr>
+        <?php foreach ($medical_historys as $history): ?>
             <tr>
-                <td>2024-05-10</td>
-                <td>Dr. John Smith</td>
-                <td>Hypertension</td>
-                <td>Amlodipine 5mg daily</td>
+                <td><?php echo $history['appointment_date'] ?></td>
+                <td><?php echo $history['doctor_name'] ?></td>
+                <td><?php echo $history['diagnosis'] ?></td>
+                <td><?php echo $history['prescriptions'] ?></td>
             </tr>
-            <tr>
-                <td>2024-04-22</td>
-                <td>Dr. Emily Davis</td>
-                <td>Eczema</td>
-                <td>Hydrocortisone cream</td>
-            </tr>
-            <tr>
-                <td>2024-03-15</td>
-                <td>Dr. Michael Brown</td>
-                <td>Migraine</td>
-                <td>Sumatriptan as needed</td>
-            </tr>
+        <?php endforeach; ?>
+        <?php endif; ?>
         </table>
+        
     </div>
 
 <!-- hamburger menu js code -->
