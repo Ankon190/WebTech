@@ -17,14 +17,14 @@ require '../php/login_db_Info_check.php';
         <form action="" method="post">
             <h1>Login</h1>
             <div class="input-box">
-                <input type="text" name="username" placeholder="Username" required>
+                <input type="text" name="username" placeholder="Username" value="<?php echo isset($_COOKIE['remember_me']) ?>" >
             </div>
             <div class="input-box">
-                <input type="password" name="password" placeholder="Password" required>
+                <input type="password" name="password" placeholder="Password" >
                 <?php if(isset($error)) { echo "<p class='error-msg'>" . $error . "</p>"; } ?>
             </div>
             <div class="remember-forget">
-                <label><input type="checkbox">Remember me</label>
+                <label><input type="checkbox" name="remember">Remember me</label>
                 <a href="#">Forgot Password?</a>
             </div>
             <button type="submit" class="btn">Login</button>
